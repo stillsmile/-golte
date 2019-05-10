@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>已签约合同</title>
+    <link rel="stylesheet" href="../../../layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../css/iconfont.css"/>
+    <link rel="stylesheet" href="../../../css/merchantManage.css"/>
+</head>
+<body class="childrenBody">
+
+<div class="layui-form-item">
+    <input type="hidden" class="merchantId"/>
+    <form class="layui-form">
+
+        <div class="layui-form-item">
+            <div class="layui-col-md12">
+                <label class="layui-form-label">商家编号</label>
+                <label class="label-width cCode cCode-position"></label>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-col-md12">
+                <label class="layui-form-label">商家名称</label>
+                <label class="label-width cCode-position mName" ></label>
+            </div>
+        </div>
+    <!--表格数据-->
+    <table id="tableList" lay-filter="tableList"></table>
+
+</form>
+</div>
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/common/base.js"></script>
+<script src="../../../js/common/enums.js"></script>
+<script src="../../../js/business_setup/merchantManage/contractInfo.js"></script>
+</body>
+</html>

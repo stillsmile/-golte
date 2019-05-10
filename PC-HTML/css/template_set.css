@@ -1,0 +1,81 @@
+.screen-roleName, .screen-roleStatus {
+    line-height: 40px;
+}
+
+.template-body .template-left {
+    float: left;
+    width: 200px;
+    /*height: 100%;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.template-body .template-right {
+    margin-left: 220px;
+    overflow-y: auto;
+}
+
+.laytable-cell-14-productData {
+    width: 220px !important;
+}
+
+.template-body .template-left .template-item {
+    width: 200px;
+    min-height: 53px;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: #888;
+    line-height: 53px;
+    cursor: pointer;
+    border: 1px solid #bbb;
+}
+
+.template-body .template-left .active {
+    border: 1px solid #E51C23 !important;;
+}
+
+.template-green {
+    color: #259B24;
+}
+
+.template-font-12 {
+    font-size: 12px;
+}
+
+.template-color1 {
+    background-color: #FF9800;
+}
+
+.template-color2 {
+    background-color: #AC4367;
+}
+
+.template-color3 {
+    background-color: #3F51B5;
+}
+
+.template-color4 {
+    background-color: #D09FA1;
+}
+
+.template-color5 {
+    background-color: #C89D29;
+}
+
+/* table th div,table td div{
+    max-width: 120x !important;
+    min-width: 100px;
+    padding: 0;
+} */
+#no-data {
+    text-align: center;
+    font-size: 16px;
+    color: #BBBBBB;
+    height: 50px;
+    line-height: 50px;
+}
+
+.template-name-large {
+    line-height: 26px !important;
+}

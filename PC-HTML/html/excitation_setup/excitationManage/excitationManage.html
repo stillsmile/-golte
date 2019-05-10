@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>激励管理</title>
+    <link rel="stylesheet" href="../../../layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../css/iconfont.css"/>
+    <link rel="stylesheet" href="../../../css/merchantManage.css"/>
+</head>
+<body class="childrenBody">
+
+<div class="layui-form-item">
+    <form class="layui-form">
+
+        <blockquote class="layui-elem-quote quoteBox">
+            <div class="layui-inline">
+                <div class="layui-btn screen">
+                    <i class="iconfont icon-shaixuan"></i>
+                    <span>筛选</span>
+                </div>
+            </div>
+            <div class="layui-inline addShow btnHide"><!--btnHide-->
+                <a class="layui-btn layui-btn-normal add_btn">
+                    <i class="layui-icon">&#xe61f;</i>
+                    <span>新增</span>
+                </a>
+            </div>
+            <div class="layui-inline delShow btnHide"><!--btnHide-->
+                <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">
+                    <i class="layui-icon">&#xe640;</i>
+                    <span>删除</span>
+                </a>
+            </div>
+            <div class="layui-inline importShow "><!--btnHide-->
+                <a class="layui-btn layui-btn-normal" id="upload">
+                    <i class="iconfont icon-daoru"></i>
+                    <span>月度导入</span>
+                </a>
+            </div>
+            <div class="layui-inline importShow "><!--btnHide-->
+                <a class="layui-btn layui-btn-normal" id="yearUpload">
+                    <i class="iconfont icon-daoru"></i>
+                    <span>年度导入</span>
+                </a>
+            </div>
+
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal export_btn">
+                    <i class="iconfont icon-daochu"></i>
+                    <span>导出</span>
+                </a>
+            </div>
+            <div class="screen-wrapper">
+                <div class="wrapper">
+                    <div class="layui-row row">
+                        <div class="layui-col-md3 screen-title">激励类型</div>
+                        <div class="layui-col-md9">
+                            <select name="type" lay-filter="type" class="type">
+                                <option value="">全部</option>
+                                <option value="1">月度激励</option>
+                                <option value="2">年度激励</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-row row">
+                        <div class="layui-col-md3 screen-name">项目</div>
+                        <div class="layui-col-md9">
+                            <input maxlength="30" type="text" class="layui-input projectName" placeholder="请输入查询项目">
+                        </div>
+                    </div>
+                    <div class="layui-row row">
+                        <div class="layui-col-md3 screen-name">人员</div>
+                        <div class="layui-col-md9">
+                            <input maxlength="30" type="text" class="layui-input memberName" placeholder="请输入查询人员">
+                        </div>
+                    </div>
+                    <div class="layui-row row">
+                        <div class="layui-col-md3 screen-name">激励类别</div>
+                        <div class="layui-col-md9">
+                            <select name="contractType" lay-filter="contractType" class="contractType">
+                                <!--//1广告资源 2场地资源 3临时摆展 4服务产 5其他-->
+                                <option value="">请选择</option>
+                                <option value="1">广告资源</option>
+                                <option value="2,5">管理收入</option>
+                                <option value="3">临时摆展</option>
+                                <option value="4">服务产品</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-row row yearShow btnHide">
+                        <div class="layui-col-md3 screen-name">激励年份</div>
+                        <div class="layui-col-md9">
+                            <input type="text" class="layui-input" id="yyear" placeholder="请选择激励年份">
+                        </div>
+                    </div>
+                    <div class="layui-row row monthShow btnHide">
+                        <div class="layui-col-md3 screen-name">开始时间</div>
+                        <div class="layui-col-md9">
+                            <input type="text" class="layui-input" id="starttime" placeholder="请选择激励月份开始时间">
+                        </div>
+                    </div>
+                    <div class="layui-row row monthShow btnHide">
+                        <div class="layui-col-md3 screen-name">结束时间</div>
+                        <div class="layui-col-md9">
+                            <input type="text" class="layui-input" id="endtime" placeholder="请选择激励月份结束时间">
+                        </div>
+                    </div>
+
+
+                    <div class="screenBtn">
+                        <a class="layui-btn search_btn">搜索</a>
+                        <button class="layui-btn reset">重置</button>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+        <!--表格数据-->
+        <table id="tableList" lay-filter="tableList"></table>
+
+    </form>
+</div>
+
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/common/base.js"></script>
+<script src="../../../js/common/enums.js"></script>
+<script src="../../../js/excitation_setup/excitationManage/excitationManage.js"></script>
+</body>
+</html>

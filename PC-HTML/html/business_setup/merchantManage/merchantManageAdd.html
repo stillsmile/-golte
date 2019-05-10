@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>新增商家信息</title>
+	<link rel="stylesheet" href="../../../layui/css/layui.css"/>
+	<link rel="stylesheet" href="../../../css/public.css"/>
+	<link rel="stylesheet" href="../../../css/merchantManage.css"/>
+	<style>
+		.file-a {
+			width:200px;
+			display:block;
+			overflow:hidden;
+			word-break:keep-all;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+		}
+	</style>
+</head>
+<body class="childrenBody">
+    <input type="hidden" class="sign"/>
+    <form class="layui-form">
+    	<div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>商家编号</i><span class="layui-badge-dot"></span></label>
+		      <div class="layui-input-inline">
+		        <input type="text" maxlength="30" name="code" class="layui-input code" lay-verify="required" placeholder="请输入商家编号">
+		      </div>
+		    </div>
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>商家名称</i><span class="layui-badge-dot"></span></label>
+		      <div class="layui-input-inline">
+		        <input type="text" maxlength="30" name="name" class="layui-input name" lay-verify="required" placeholder="请输入商家名称">
+		      </div>
+		    </div>
+		</div>
+    	<div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>联系人1</i><span class="layui-badge-dot"></span></label>
+		      <div class="layui-input-inline">
+		        <input type="text" maxlength="15" name="contact" class="layui-input contact" lay-verify="required" placeholder="请输入联系人">
+		      </div>
+		    </div>
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>联系方式1</i><span class="layui-badge-dot"></span></label>
+		      <div class="layui-input-inline">
+		        <input maxlength="15" type="text" name="contactPhone" onkeyup="value=value.replace(/[^\d]/g,'')" class="layui-input contactPhone" lay-verify="required" placeholder="请输入联系方式"/>
+		      </div>
+		    </div>
+		</div>
+    	<div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>联系人2</i></label>
+		      <div class="layui-input-inline">
+		        <input type="text" maxlength="15" name="contact2" class="layui-input contact2" placeholder="请输入联系人">
+		      </div>
+		    </div>
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>联系方式2</i></label>
+		      <div class="layui-input-inline">
+		        <input type="text" maxlength="15" name="contactPhone2" onkeyup="value=value.replace(/[^\d]/g,'')" class="layui-input contactPhone2" placeholder="请输入联系方式">
+		      </div>
+		    </div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">公司地址</label>
+			<div class="layui-input-inline">
+				<select name="cProvince" lay-filter="cProvince" class="cProvince" >
+				</select>
+			</div>
+			<div class="layui-input-inline">
+				<select name="cCity" lay-filter="cCity" class="cCity" >
+				</select>
+			</div>
+			<div class="layui-input-inline">
+				<select name="cCountry" lay-filter="cCountry" class="cCountry" >
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-col-md5">
+				<label class="layui-form-label"><i>详细地址</i></label>
+				<div class="layui-input-block">
+					<input type="text" maxlength="50" name="detailedAddress" class="layui-input detailedAddress" placeholder="请输入详细地址">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><i>商家落地城市</i><span class="layui-badge-dot"></span></label>
+			<div class="layui-inline">
+				<select name="centralCityId" lay-filter="centralCityId" lay-verify="required" class="centralCityId" >
+				</select>
+			</div>
+			<div class="layui-inline">
+				<select name="cityId" lay-filter="cityId" lay-verify="required" class="cityId" >
+				</select>
+			</div>
+		</div>
+        <div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>是否合格供应商</i></label>
+		      <div class="layui-input-inline">
+		        <input type="checkbox" checked="" value="1" name="open" class="switchsupplier" lay-skin="switch" lay-filter="switchsupplier" lay-text="是|否">
+		      </div>
+		    </div>
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>商家等级</i></label>
+		      <div class="layui-input-inline">
+				  <select name="level" lay-filter="level" class="level" >
+					  <option value="1">全国</option>
+					  <option value="2">城市</option>
+					  <option value="3">项目</option>
+				  </select>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label sowingPicture"><span lang="html:merchant_sowingPicture">商家资料上传</span></label>
+			<div class="layui-btn layui-btn-sm" id="upload">上传</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">
+				</label>
+				<table class="layui-table layui-table-upload specList">
+					<thead>
+					<tr>
+						<th style="text-align: center">文件名</th>
+						<th style="text-align: center">操作</th>
+					</tr>
+					</thead>
+					<tbody id="fileList">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-col-md5">
+				<label class="layui-form-label"><i>备注</i></label>
+				<div class="layui-input-block">
+					<input type="text" maxlength="50" name="remarks" class="layui-input remarks" placeholder="请输入备注">
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block" style="margin-left: 40%;">
+				<button class="layui-btn submit" lay-submit lay-filter="addOrEdit" lang="html:submit">提交</button>
+				<button class="layui-btn cancel">取消</button>
+			</div>
+		</div>
+    </form>
+
+    <script src="../../../layui/layui.js"></script>
+    <script src="../../../js/common/base.js"></script>
+    <script src="../../../js/common/enums.js"></script>
+	<script src="../../../js/business_setup/merchantManage/merchantManageAdd.js"></script>
+</body>
+</html>

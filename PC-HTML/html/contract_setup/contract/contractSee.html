@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看合同</title>
+    <link rel="stylesheet" href="../../../css/iconfont.css"/>
+    <link rel="stylesheet" href="../../../layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../layui/css/formSelects-v4.css"/>
+    <link rel="stylesheet" href="../../../css/goodsAdd.css"/>
+    <style>
+        .xm-select-tips {
+            display: none !important;
+        }
+        
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+    <input type="hidden" class="mer" value="">
+    <input type="hidden" class="sign"/>
+    <input type="hidden" class="projectList"/>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label type"><span>城市</span></label>
+            <div class="layui-input-block">
+                <select name="cityId" lay-filter="cityId" class="cityId" disabled>
+                    <option value="" class="mainOption">请选择城市</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合同编号</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input code" name="code"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合同名称</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input name" name="name"
+                       lay-verify="required" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合作商家</span></label>
+            <div class="layui-input-block">
+                <select name="merchantId" lay-filter="merchantId" class="merchantId" disabled>
+                    <option value="" class="mainOption">请选择合作商家</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>商家联系人</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input merchantContact" name="merchantContact"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>商家联系方式</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input merchantContactPhone" name="merchantContactPhone"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-form-item layui-col-md4">
+            <label class="layui-form-label">
+                <span >签约时间</span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input signingTime" id="signingTime"
+                        disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>签约人</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input signingContact" name="signingContact"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>签约联系方式</span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input signingContactPhone" name="signingContactPhone"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label">
+                <span >合同生效时间</span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input deadlineStartTime" id="deadlineStartTime"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label">
+                <span >合同到期时间</span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input deadlineEndTime" id="deadlineEndTime"
+                        lay-verify="required" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label type"><span>签约类型</span></label>
+            <div class="layui-input-block">
+                <select name="signingType" lay-filter="signingType" class="signingType" disabled>
+                    <option value="" class="mainOption">请选择签约类型</option>
+                    <option value="1" class="mainOption">新合同</option>
+                    <option value="2" class="mainOption">续签</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label type"><span>合同类别</span></label>
+            <div class="layui-input-block">
+                <select name="contractType" lay-filter="contractType" class="contractType" disabled>
+                    <option value="" class="mainOption">请选择合同类别</option>
+                    <option value="1" class="mainOption">广告资源</option>
+                    <option value="2" class="mainOption">场地资源</option>
+                    <option value="3" class="mainOption">临时摆展</option>
+                    <option value="4" class="mainOption">服务产品</option>
+                    <option value="5" class="mainOption">其他</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>项目列表</span></label>
+            <div class="layui-input-block">
+                <table id="table" class="layui-table" style="width: 1200px">
+                    <thead>
+                    <tr>
+                        <td>合作项目</td>
+                        <td>点位</td>
+                        <td style="width: 200px">使用资源</td>
+                        <td>收费模式</td>
+                        <td>付款周期</td>
+                        <td>单价（元/%）</td>
+                        <td>单位</td>
+                        <td>数量</td>
+                        <td>小计（元）</td>
+                    </tr>
+                    </thead>
+                    <tbody class="specBody">
+                    </tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>合同总金额（元）</td>
+                        <td class="amount"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>履约保证金（元）</td>
+                        <td class="margin"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea maxlength="255" class="layui-textarea remarks"
+                      name="remarks" disabled></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md6">
+            <label class="layui-form-label sowingPicture"><i>合同附件</i></label>
+            <div class="layui-input-block">
+                <table class="layui-table layui-table-upload">
+                    <thead>
+                    <tr>
+                        <td>文件名</td>
+                        <!--<th>操作</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="fileList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row row" style="margin-left: 85px">
+        <div class="layui-col-md3"><i>变更原因</i>：<span class="changeReason"></span></div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md6">
+            <label class="layui-form-label sowingPicture"><i>变更合同附件</i></label>
+            <div class="layui-input-block">
+                <table class="layui-table layui-table-upload">
+                    <thead>
+                    <tr>
+                        <td>文件名</td>
+                        <!--<th>操作</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="changeFileList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row row" style="margin-left: 85px">
+        <div class="layui-col-md3"><i>终止日期</i>：<span class="terminationTime"></span></div>
+        <div class="layui-col-md3"><i>未收款项</i>：<span class="notRecoveredAmount"></span></div>
+        <div class="layui-col-md3"><i>终止原因</i>：<span class="reason"></span></div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md6">
+            <label class="layui-form-label sowingPicture"><i>终止合同附件</i></label>
+            <div class="layui-input-block">
+                <table class="layui-table layui-table-upload">
+                    <thead>
+                    <tr>
+                        <td>文件名</td>
+                        <!--<th>操作</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="stopFileList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-col-md8">
+            <label class="layui-form-label sowingPicture"><i>审批历史</i></label>
+            <div class="layui-input-block">
+                <table class="layui-table layui-table-upload">
+                    <thead>
+                    <tr>
+                        <td style="width: 35px">序号</td>
+                        <td style="width: 100px">操作人</td>
+                        <td style="width: 100px">操作时间</td>
+                        <td style="width: 75px">操作</td>
+                        <td>备注</td>
+                    </tr>
+                    </thead>
+                    <tbody id="approveList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/common/base.js"></script>
+<script src="../../../layui/formSelects-v4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/contract_setup/contract/contractSee.js"></script>
+</body>
+</html>

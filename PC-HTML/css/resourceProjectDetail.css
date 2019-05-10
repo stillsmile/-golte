@@ -1,0 +1,32 @@
+.screen-title, .screen-name, .screen-phone, .screen-status {
+    line-height: 40px;
+}
+.screen-title {
+    color: #000;
+}
+.a-download {
+    color: #1e9fff;
+}
+
+.city-width {
+    width: 25%;
+}
+.cCode-position {
+    float: left;
+    display: block;
+    padding: 9px 15px;
+    width: 80px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+.layui-table-upload {
+    width: 50%;
+
+}
+.layui-btn-row-a {
+    max-width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}

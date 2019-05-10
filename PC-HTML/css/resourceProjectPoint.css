@@ -1,0 +1,17 @@
+.screen-title, .screen-name, .screen-phone, .screen-status {
+    line-height: 40px;
+}
+.screen-title {
+    color: #000;
+}
+.a-download {
+    color: #1e9fff;
+}
+
+.tree-width {
+    float: left;
+    width: 15%;
+}
+.table-width {
+    width: 75%;
+}

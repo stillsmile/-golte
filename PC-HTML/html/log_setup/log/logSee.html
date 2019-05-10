@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看详情</title>
+    <link rel="stylesheet" href="../../../css/iconfont.css"/>
+    <link rel="stylesheet" href="../../../layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../layui/css/formSelects-v4.css"/>
+    <link rel="stylesheet" href="../../../css/goodsAdd.css"/>
+    <style>
+        .xm-select-tips {
+            display: none !important;
+        }
+        
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+    <input type="hidden" class="mer" value="">
+    <input type="hidden" class="sign"/>
+    <input type="hidden" class="projectList"/>
+    <input type="hidden" class="projectListUp"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><span>合同信息</span></label>
+        <div class="layui-input-block">
+            <table class="layui-table" style="width: 750px">
+                <thead>
+                <tr>
+                    <td>字段名称</td>
+                    <td>变更前</td>
+                    <td>变更后</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>商家联系人</td>
+                    <td class="merchantContact"></td>
+                    <td class="merchantContactUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>商家联系电话</td>
+                    <td class="merchantContactPhone"></td>
+                    <td class="merchantContactPhoneUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>签约联系人</td>
+                    <td class="signingContact"></td>
+                    <td class="signingContactUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>签约联系电话</td>
+                    <td class="signingContactPhone"></td>
+                    <td class="signingContactPhoneUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>签约日期</td>
+                    <td class="signingTime"></td>
+                    <td class="signingTimeUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>合同期限开始时间</td>
+                    <td class="deadlineStartTime"></td>
+                    <td class="deadlineStartTimeUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>合同期限结束时间</td>
+                    <td class="deadlineEndTime"></td>
+                    <td class="deadlineEndTimeUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>签约类型</td>
+                    <td class="signingType"></td>
+                    <td class="signingTypeUp" style="color: #af0000"></td>
+                </tr>
+                <tr>
+                    <td>合同类别</td>
+                    <td class="contractType"></td>
+                    <td class="contractTypeUp" style="color: #af0000"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>变更前项目列表</span></label>
+            <div class="layui-input-block">
+                <table id="table" class="layui-table" style="width: 1200px">
+                    <thead>
+                    <tr>
+                        <td>合作项目</td>
+                        <td>点位</td>
+                        <td style="width: 200px">使用资源</td>
+                        <td>收费模式</td>
+                        <td>付款周期</td>
+                        <td>单价（元/%）</td>
+                        <td>数量</td>
+                        <td>小计（元）</td>
+                    </tr>
+                    </thead>
+                    <tbody class="specBody">
+                    </tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>合同总金额（元）</td>
+                        <td class="amount"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>履约保证金（元）</td>
+                        <td class="margin"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label class="layui-form-label"><span>变更后项目列表</span></label>
+            <div class="layui-input-block">
+                <table id="tableUp" class="layui-table" style="width: 1200px">
+                    <thead>
+                    <tr>
+                        <td>合作项目</td>
+                        <td>点位</td>
+                        <td style="width: 200px">使用资源</td>
+                        <td>收费模式</td>
+                        <td>付款周期</td>
+                        <td>单价（元/%）</td>
+                        <td>数量</td>
+                        <td>小计（元）</td>
+                    </tr>
+                    </thead>
+                    <tbody class="specBodyUp">
+                    </tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>合同总金额（元）</td>
+                        <td class="amountUp"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>履约保证金（元）</td>
+                        <td class="marginUp"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/common/base.js"></script>
+<script src="../../../layui/formSelects-v4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/log_setup/log/logSee.js"></script>
+</body>
+</html>

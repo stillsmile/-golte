@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="main_bg">
+<head>
+	<meta charset="utf-8">
+	<title>首页--layui后台管理模板</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/main.css" />
+	<style>
+		.serach-row {
+			margin-top: 10px;
+			background-color: #FFFFFF;
+		}
+		.table-row {
+			background-color: #FFFFFF;
+		}
+		.table-row table {
+			width: 100%;
+			background-color: #fff;
+			color: #000000;
+			margin: 10px 0;
+		}
+		.table-row table td {
+			position: relative;
+			padding: 9px 15px;
+			min-height: 20px;
+			line-height: 20px;
+			font-size: 14px;
+		}
+		.td-font td{
+			font-size: 25px !important;
+		}
+		.table-row > tr:hover,.table-row > tr > td:hover{
+			background-color: #FFFFFF;
+		}
+		.echarts-row {
+			width: 100%;
+			margin-top: 20px;
+		}
+		.echarts-left {
+			width: 48%;
+			float: left;
+			background-color: #FFFFFF;
+		}
+		.echarts-right {
+			width: 48%;
+			float: right;
+			background-color: #FFFFFF;
+		}
+		.echarts-height {
+			height:400px;
+		}
+	</style>
+</head>
+<body class="main_bg">
+<form class="layui-form">
+<div class="layui-container ">
+	<div class="layui-row serach-row">
+		<div class="layui-col-xs2 layui-col-sm2 layui-col-md2 " style="float: left;">
+			<select name="cityId" lay-filter="cityId" class="cityId" >
+			</select>
+		</div>
+		<div class="layui-col-xs1 layui-col-sm1 layui-col-md1" style="float: right;display:none;">
+			<input type="text" class="layui-input yyear" id="yyear" placeholder="请选择年份">
+		</div>
+	</div>
+	<div class="layui-row table-row">
+		<div class="layui-col-md12">
+			<table>
+				<tbody>
+					<tr align="center">
+						<td width="33%">年度指标(元)</td>
+						<td width="34%">签约金额(元)</td>
+						<td width="33%">完成率</td>
+					</tr>
+					<tr align="center" class="td-font">
+						<td id="yearTarget"></td>
+						<td id="amount"></td>
+						<td id="rate"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="layui-row echarts-row">
+		<div class="echarts-left">
+			<div style="margin-top: 10px">资源类别使用情况  Top6</div>
+			<div id="monthChart" class="echarts-height"></div>
+		</div>
+		<div class="echarts-right">
+			<div style="margin-top: 10px">项目成交金额  Top10</div>
+			<div id="resourceChart" class="echarts-height"></div>
+		</div>
+	</div>
+	<div class="layui-row echarts-row">
+		<div class="echarts-left">
+			<div style="margin-top: 10px">合同类别成交金额占比</div>
+			<div id="contractChart" class="echarts-height"></div>
+		</div>
+		<div class="echarts-right">
+			<div style="margin-top: 10px">商家成交金额 Top10</div>
+			<div id="merchatChart" class="echarts-height"></div>
+		</div>
+	</div>
+</div>
+</form>
+
+<script src="../layui/layui.js"></script>
+<script src="../js/common/base.js"></script>
+<script src="../js/common/echarts.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

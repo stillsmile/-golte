@@ -1,0 +1,95 @@
+.uploadImgSize {
+    line-height: 30px;
+}
+
+/*.banView {
+    margin-top: 10px;
+    border-color: #e6e6e6;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    background: 0 0;
+    padding: 10px;
+}*/
+
+.banView:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.banner {
+    /* width: 92px !important;
+     height: 92px;
+     border: 1px solid #eee;
+     text-align: center;
+     line-height: 92px;
+     cursor: pointer;*/
+    float: left;
+    text-align: center;
+}
+
+.banner p {
+    font-size: 14px;
+}
+
+.layui-upload-img {
+    display: inline-block;
+    position: relative;
+}
+
+.banCloseImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px !important;
+    color: #08ACD7;
+    cursor: pointer;
+}
+
+.banBox {
+    float: left;
+}
+
+.layui-upload-img {
+    width: 183px;
+}
+
+.txt {
+    margin-top: 5px;
+}
+
+.layui-btn-sm {
+    margin-top: 5px;
+}
+
+.layui-table td {
+    text-align: center;
+}
+
+.uploadImgDetail {
+    width: 50px;
+    height: 50px;
+}
+
+.uploadImgDetail img {
+    width: 100%;
+}
+.closeTdImg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px !important;
+    color: #08ACD7;
+    cursor: pointer;
+}
+.specBody{
+    transition: all 0.5s;
+}
+.rotate{
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+.integralPayMsg {
+    padding: 9px 15px;
+}

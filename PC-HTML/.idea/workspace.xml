@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f740510f-34d4-4bd3-9e29-7297b4a3d397" name="Default Changelist" comment="多选框不加载">
+      <change beforePath="$PROJECT_DIR$/js/common/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManageAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManageAdd.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path=".idea/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/system_setup/config/roleConfigAdd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/system_setup/employee/empAdd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="893">
+              <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/system_setup/employee/employee.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4199">
+              <caret line="221" column="14" selection-start-line="221" selection-start-column="14" selection-end-line="221" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/business_setup/merchantManage/mEvaluation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="80" column="58" selection-start-line="80" selection-start-column="58" selection-end-line="80" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/business_setup/merchantManage/mEvaluation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/excitation_setup/excitationManage/excitationManageAdd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4218">
+              <caret line="222" column="52" selection-start-line="222" selection-start-column="52" selection-end-line="222" selection-end-column="52" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManageAdd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7923">
+              <caret line="417" column="18" selection-start-line="417" selection-start-column="18" selection-end-line="417" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6308">
+              <caret line="332" column="14" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>rend</find>
+      <find>multiRole</find>
+      <find>req</find>
+      <find>formSelects</find>
+      <find>logToken</find>
+      <find>read</find>
+      <find>ycontractType</find>
+      <find>yarrivalConversion</find>
+      <find>yotherDeduction</find>
+      <find>target</find>
+      <find>mactualAmount</find>
+      <find>mcontractType</find>
+      <find>limitNum</find>
+      <find>修复</find>
+      <find>style</find>
+      <find>empName</find>
+      <find>maxlength</find>
+      <find>税金</find>
+      <find>其他</find>
+      <find>number</find>
+      <find>Num</find>
+      <find>num</find>
+      <find>mtax</find>
+      <find>type</find>
+      <find>addOrEdit</find>
+      <find>fix</find>
+      <find>yroleId</find>
+      <find>ycardinalNumber</find>
+      <find>yshouldAmount</find>
+      <find>yactualAmount</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/html/resource_setup/project/resourceProject.html" />
+        <option value="$PROJECT_DIR$/js/common/bodyTab.js" />
+        <option value="$PROJECT_DIR$/html/message.html" />
+        <option value="$PROJECT_DIR$/js/message.js" />
+        <option value="$PROJECT_DIR$/css/iconfont.css" />
+        <option value="$PROJECT_DIR$/js/resource_setup/project/resourceProject.js" />
+        <option value="$PROJECT_DIR$/css/excitationManage.css" />
+        <option value="$PROJECT_DIR$/css/resourceProjectDetailAdd.css" />
+        <option value="$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetailEdit.html" />
+        <option value="$PROJECT_DIR$/html/resource_setup/project/resourceProjectAdd.html" />
+        <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/html/contract_setup/contract/contract.html" />
+        <option value="$PROJECT_DIR$/html/basic_setup/citymanage/cityManageAdd.html" />
+        <option value="$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetailAdd.html" />
+        <option value="$PROJECT_DIR$/js/basic_setup/centralcity/centralCityAdd.js" />
+        <option value="$PROJECT_DIR$/js/basic_setup/citymanage/cityManage.js" />
+        <option value="$PROJECT_DIR$/html/resource_setup/point/resourcePointAdd.html" />
+        <option value="$PROJECT_DIR$/js/resource_setup/projectDetail/resourceProjectDetailAdd.js" />
+        <option value="$PROJECT_DIR$/js/resource_setup/projectDetail/resourceProjectDetailEdit.js" />
+        <option value="$PROJECT_DIR$/js/resource_setup/project/resourceProjectAdd.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/system_setup/employee/employee.js" />
+        <option value="$PROJECT_DIR$/html/system_setup/employee/empAdd.html" />
+        <option value="$PROJECT_DIR$/js/basic_setup/centralcity/centralCity.js" />
+        <option value="$PROJECT_DIR$/js/business_setup/merchantManage/contractInfo.js" />
+        <option value="$PROJECT_DIR$/js/resource_setup/point/resourcePoint.js" />
+        <option value="$PROJECT_DIR$/js/resource_setup/point/resourcePointAdd.js" />
+        <option value="$PROJECT_DIR$/html/business_setup/merchantManage/merchantManage.html" />
+        <option value="$PROJECT_DIR$/html/business_setup/merchantManage/mEvaluation.html" />
+        <option value="$PROJECT_DIR$/js/common/base.js" />
+        <option value="$PROJECT_DIR$/html/business_setup/merchantManage/merchantManageAdd.html" />
+        <option value="$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetail.html" />
+        <option value="$PROJECT_DIR$/html/excitation_setup/excitationManage/excitationManage.html" />
+        <option value="$PROJECT_DIR$/js/basic_setup/citymanage/cityManageAdd.js" />
+        <option value="$PROJECT_DIR$/js/system_setup/employee/empAdd.js" />
+        <option value="$PROJECT_DIR$/js/resource_setup/projectDetail/resourceProjectDetail.js" />
+        <option value="$PROJECT_DIR$/js/common/enums.js" />
+        <option value="$PROJECT_DIR$/js/business_setup/merchantManage/mEvaluation.js" />
+        <option value="$PROJECT_DIR$/js/business_setup/merchantManage/merchantManageAdd.js" />
+        <option value="$PROJECT_DIR$/js/business_setup/merchantManage/merchantManage.js" />
+        <option value="$PROJECT_DIR$/js/system_setup/config/roleConfigAdd.js" />
+        <option value="$PROJECT_DIR$/html/system_setup/config/roleConfigAdd.html" />
+        <option value="$PROJECT_DIR$/html/main.html" />
+        <option value="$PROJECT_DIR$/html/system_setup/config/roleConfig.html" />
+        <option value="$PROJECT_DIR$/js/system_setup/config/roleConfig.js" />
+        <option value="$PROJECT_DIR$/js/mainAdd.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/html/excitation_setup/excitationManage/excitationManageAdd.html" />
+        <option value="$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManage.js" />
+        <option value="$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManageAdd.js" />
+        <option value="$PROJECT_DIR$/js/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="97" />
+    <option name="y" value="54" />
+    <option name="width" value="1400" />
+    <option name="height" value="820" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="business_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="business_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="merchantManage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="contract_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="excitation_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="excitation_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="excitationManage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="system_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="system_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="business_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="business_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="merchantManage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="excitation_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="excitation_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="excitationManage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="system_setup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="system_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="system_setup" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PC-HTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PC-HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="layui" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\golte\PC-HTML\js\system_setup\config" />
+      <recent name="D:\WorkSpace\golte\PC-HTML\html\system_setup\config" />
+      <recent name="D:\WorkSpace\golte\PC-HTML\html\system_setup\employee" />
+      <recent name="D:\WorkSpace\golte\PC-HTML\images" />
+      <recent name="D:\WorkSpace\golte\PC-HTML\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\golte\PC-HTML\js" />
+      <recent name="D:\WorkSpace\golte\PC-HTML\html" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\ASUS2\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\WorkSpace\golte\PC-HTML" />
+          <option name="myCopyRoot" value="D:\WorkSpace\golte\PC-HTML" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\WorkSpace\golte\PC-HTML" />
+          <option name="myCopyRoot" value="D:\WorkSpace\golte\PC-HTML" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f740510f-34d4-4bd3-9e29-7297b4a3d397" name="Default Changelist" comment="" />
+      <created>1553766528503</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553766528503</updated>
+      <workItem from="1553766530744" duration="21308000" />
+      <workItem from="1554080549621" duration="22984000" />
+      <workItem from="1554108184749" duration="97129000" />
+      <workItem from="1554373377501" duration="80000" />
+      <workItem from="1554373589696" duration="5797000" />
+      <workItem from="1554685128166" duration="71770000" />
+      <workItem from="1554946183957" duration="14537000" />
+      <workItem from="1555031189431" duration="13000" />
+      <workItem from="1555031221507" duration="32054000" />
+      <workItem from="1555290206540" duration="283916000" />
+      <workItem from="1557041078850" duration="37000" />
+      <workItem from="1557105860123" duration="1072000" />
+      <workItem from="1557365177144" duration="604000" />
+      <workItem from="1557387853485" duration="200000" />
+      <workItem from="1557394017805" duration="92000" />
+    </task>
+    <task id="LOCAL-00014" summary="页面功能,及显示的bug修正">
+      <created>1555407618534</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555407618534</updated>
+    </task>
+    <task id="LOCAL-00015" summary="消息列表（补充）">
+      <created>1555463470243</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1555463470243</updated>
+    </task>
+    <task id="LOCAL-00016" summary="bug修正">
+      <created>1555498187132</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1555498187132</updated>
+    </task>
+    <task id="LOCAL-00017" summary="bug修正">
+      <created>1555553248594</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555553248594</updated>
+    </task>
+    <task id="LOCAL-00018" summary="bug修正">
+      <created>1555572839233</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1555572839233</updated>
+    </task>
+    <task id="LOCAL-00019" summary="bug修正">
+      <created>1555583470478</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1555583470478</updated>
+    </task>
+    <task id="LOCAL-00020" summary="中心城市负责人加载变成正常数据加载">
+      <created>1555639318496</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1555639318496</updated>
+    </task>
+    <task id="LOCAL-00021" summary="中心城市负责人加载变成正常数据加载">
+      <created>1555640595453</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1555640595453</updated>
+    </task>
+    <task id="LOCAL-00022" summary="中心城市bug无选择提示">
+      <created>1555641693958</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1555641693958</updated>
+    </task>
+    <task id="LOCAL-00023" summary="回滚资源点位，并资源明细不可编辑">
+      <created>1555646387274</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1555646387274</updated>
+    </task>
+    <task id="LOCAL-00024" summary="资源(补充)">
+      <created>1555646514452</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1555646514452</updated>
+    </task>
+    <task id="LOCAL-00025" summary="资源(补充)">
+      <created>1555652022164</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1555652022164</updated>
+    </task>
+    <task id="LOCAL-00026" summary="资源(补充)">
+      <created>1555667018964</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1555667018964</updated>
+    </task>
+    <task id="LOCAL-00027" summary="激励(补充)">
+      <created>1555667269699</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1555667269699</updated>
+    </task>
+    <task id="LOCAL-00028" summary="激励(补充)">
+      <created>1555668665518</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1555668665518</updated>
+    </task>
+    <task id="LOCAL-00029" summary="激励(补充)">
+      <created>1555675356654</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1555675356654</updated>
+    </task>
+    <task id="LOCAL-00030" summary="激励(补充)">
+      <created>1555729441597</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1555729441597</updated>
+    </task>
+    <task id="LOCAL-00031" summary="导入修正提示">
+      <created>1555735090571</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1555735090571</updated>
+    </task>
+    <task id="LOCAL-00032" summary="bug修正">
+      <created>1555914882987</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1555914882987</updated>
+    </task>
+    <task id="LOCAL-00033" summary="bug修正">
+      <created>1555925952147</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1555925952147</updated>
+    </task>
+    <task id="LOCAL-00034" summary="bug修正">
+      <created>1555984503383</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1555984503383</updated>
+    </task>
+    <task id="LOCAL-00035" summary="首页及激励数值小数部分处理">
+      <created>1555999548824</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1555999548824</updated>
+    </task>
+    <task id="LOCAL-00036" summary="首页及激励数值小数部分处理(补充)">
+      <created>1556002330803</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1556002330803</updated>
+    </task>
+    <task id="LOCAL-00037" summary="激励提示语修正">
+      <created>1556002945386</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1556002945386</updated>
+    </task>
+    <task id="LOCAL-00038" summary="提示语修正">
+      <created>1556015944464</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1556015944464</updated>
+    </task>
+    <task id="LOCAL-00039" summary="加载中心城市修正">
+      <created>1556067933078</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1556067933078</updated>
+    </task>
+    <task id="LOCAL-00040" summary="bug修正">
+      <created>1556087985101</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1556087985101</updated>
+    </task>
+    <task id="LOCAL-00041" summary="bug修正">
+      <created>1556099655241</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1556099655241</updated>
+    </task>
+    <task id="LOCAL-00042" summary="bug修正">
+      <created>1556111547171</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1556111547171</updated>
+    </task>
+    <task id="LOCAL-00043" summary="增加图片上传格式">
+      <created>1556117888981</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1556117888981</updated>
+    </task>
+    <task id="LOCAL-00044" summary="增加上传名称太长处理">
+      <created>1556198682012</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1556198682012</updated>
+    </task>
+    <task id="LOCAL-00045" summary="商家中心城市及增加上传名称太长处理">
+      <created>1556258307103</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1556258307103</updated>
+    </task>
+    <task id="LOCAL-00046" summary="更正首页商家名称倾斜度，限制文件上传格式">
+      <created>1556372215902</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1556372215902</updated>
+    </task>
+    <task id="LOCAL-00047" summary="激励提交校验">
+      <created>1556421097535</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1556421097535</updated>
+    </task>
+    <task id="LOCAL-00048" summary="多选框不加载">
+      <created>1556423601821</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1556423601821</updated>
+    </task>
+    <task id="LOCAL-00049" summary="导入增加对应的token">
+      <created>1556445604636</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1556445604636</updated>
+    </task>
+    <task id="LOCAL-00050" summary="首页图标">
+      <created>1556501850636</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1556501850639</updated>
+    </task>
+    <task id="LOCAL-00051" summary="激励空值处理">
+      <created>1556514359565</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1556514359565</updated>
+    </task>
+    <task id="LOCAL-00052" summary="ie   disable  去除光标">
+      <created>1556515775494</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1556515775494</updated>
+    </task>
+    <task id="LOCAL-00053" summary="bug修正">
+      <created>1556521333057</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1556521333057</updated>
+    </task>
+    <task id="LOCAL-00054" summary="bug修正">
+      <created>1556525358195</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1556525358195</updated>
+    </task>
+    <task id="LOCAL-00055" summary="bug修正">
+      <created>1556529097637</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1556529097638</updated>
+    </task>
+    <task id="LOCAL-00056" summary="首页数据左偏移">
+      <created>1556535593274</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1556535593274</updated>
+    </task>
+    <task id="LOCAL-00057" summary="多选框不加载">
+      <created>1556538708750</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1556538708750</updated>
+    </task>
+    <task id="LOCAL-00058" summary="bug">
+      <created>1556540451443</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1556540451443</updated>
+    </task>
+    <task id="LOCAL-00059" summary="激励角色配置页面">
+      <created>1556607424977</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1556607424977</updated>
+    </task>
+    <task id="LOCAL-00060" summary="增加首页图标注释">
+      <created>1556608164513</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1556608164514</updated>
+    </task>
+    <task id="LOCAL-00061" summary="重构激励年度加载">
+      <created>1556616568992</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1556616568992</updated>
+    </task>
+    <task id="LOCAL-00062" summary="补充">
+      <created>1556617856497</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1556617856498</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="551593000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25285172" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.41184387" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.11978465" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22370088" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.41184387" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32974428" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="资源(补充)" />
+    <MESSAGE value="激励(补充)" />
+    <MESSAGE value="导入修正提示" />
+    <MESSAGE value="首页及激励数值小数部分处理" />
+    <MESSAGE value="首页及激励数值小数部分处理(补充)" />
+    <MESSAGE value="激励提示语修正" />
+    <MESSAGE value="提示语修正" />
+    <MESSAGE value="加载中心城市修正" />
+    <MESSAGE value="增加图片上传格式" />
+    <MESSAGE value="增加上传名称太长处理" />
+    <MESSAGE value="商家中心城市及增加上传名称太长处理" />
+    <MESSAGE value="更正首页商家名称倾斜度，限制文件上传格式" />
+    <MESSAGE value="激励提交校验" />
+    <MESSAGE value="导入增加对应的token" />
+    <MESSAGE value="首页图标" />
+    <MESSAGE value="激励空值处理" />
+    <MESSAGE value="ie   disable  去除光标" />
+    <MESSAGE value="bug修正" />
+    <MESSAGE value="首页数据左偏移" />
+    <MESSAGE value="多选框不加载" />
+    <MESSAGE value="bug" />
+    <MESSAGE value="激励角色配置页面" />
+    <MESSAGE value="增加首页图标注释" />
+    <MESSAGE value="重构激励年度加载" />
+    <MESSAGE value="补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="补充" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/contract_setup/contract/contractChangeApprove.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="143" column="35" lean-forward="true" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/contract_setup/contract/contractChange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="466" column="43" selection-start-line="466" selection-start-column="43" selection-end-line="466" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/resource_setup/point/resourcePointAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/resource_setup/point/resourcePoint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="230" column="56" selection-start-line="230" selection-start-column="56" selection-end-line="230" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business_setup/merchantManage/contractInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/resource_setup/project/resourceProjectAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/resource_setup/project/resourceProject.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="50" column="48" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/resource_setup/project/resourceProject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="262" column="51" lean-forward="true" selection-start-line="262" selection-start-column="51" selection-end-line="262" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layui/css/formSelects-v4.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/goodsAdd.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business_setup/merchantManage/merchantManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="114" column="62" selection-start-line="114" selection-start-column="62" selection-end-line="114" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business_setup/merchantManage/contractInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/system_setup/employee/empAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/resource_setup/point/resourcePointAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1265">
+          <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetailEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/resource_setup/projectDetail/resourceProjectDetailAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/contract_setup/contract/contractAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/basic_setup/centralcity/centralCity.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/basic_setup/centralcity/centralCityAdd.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/basic_setup/citymanage/cityManageAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="88" column="63" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/basic_setup/citymanage/cityManageAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/contract_setup/contract/contract.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9679">
+          <caret line="809" column="32" lean-forward="true" selection-start-line="809" selection-start-column="32" selection-end-line="809" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#tbody#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layui/lay/modules/layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="509" column="45" selection-start-line="509" selection-start-column="45" selection-end-line="509" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/updatePwd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common/enums.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business_setup/merchantManage/merchantManageAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="156" column="36" lean-forward="true" selection-start-line="156" selection-start-column="36" selection-end-line="156" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/resource_setup/projectDetail/resourceProjectDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business_setup/merchantManage/merchantManageAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="112" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#7;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#7;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#9;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/contract_setup/contract/contractAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="182" column="33" lean-forward="true" selection-start-line="182" selection-start-column="33" selection-end-line="182" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business_setup/merchantManage/merchantManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/excitation_setup/excitationManage/excitationManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/system_setup/config/roleConfigAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mainAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/system_setup/config/roleConfig.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/mainAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="355" column="34" lean-forward="true" selection-start-line="355" selection-start-column="34" selection-end-line="355" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_setup/config/roleConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="108" column="39" lean-forward="true" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="14363" column="34" selection-start-line="14363" selection-start-column="34" selection-end-line="14363" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_setup/config/roleConfigAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_setup/employee/empAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_setup/employee/employee.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4199">
+          <caret line="221" column="14" selection-start-line="221" selection-start-column="14" selection-end-line="221" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/excitation_setup/excitationManage/excitationManageAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4218">
+          <caret line="222" column="52" selection-start-line="222" selection-start-column="52" selection-end-line="222" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManageAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7923">
+          <caret line="417" column="18" selection-start-line="417" selection-start-column="18" selection-end-line="417" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/excitation_setup/excitationManage/excitationManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6308">
+          <caret line="332" column="14" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business_setup/merchantManage/mEvaluation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="80" column="58" selection-start-line="80" selection-start-column="58" selection-end-line="80" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business_setup/merchantManage/mEvaluation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

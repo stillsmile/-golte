@@ -1,0 +1,15 @@
+.screen-title, .screen-name, .screen-phone, .screen-status {
+    line-height: 40px;
+}
+.screen-title {
+    color: #000;
+}
+.layui-table-upload {
+    width: 50%;
+}
+.layui-btn-row-a {
+    max-width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}

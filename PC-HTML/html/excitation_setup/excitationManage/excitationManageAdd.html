@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>新增激励信息</title>
+	<link rel="stylesheet" href="../../../layui/css/layui.css"/>
+	<link rel="stylesheet" href="../../../css/public.css"/>
+</head>
+<body class="childrenBody">
+    <input type="hidden" class="sign"/>
+    <form class="layui-form">
+    	<div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><i>激励类型</i></label>
+		      <div class="layui-input-inline">
+				  <select name="excitationType" lay-filter="excitationType" class="excitationType" >
+					  <option value="1">月度激励</option>
+					  <option value="2">年度激励</option>
+				  </select>
+		      </div>
+		    </div>
+
+		</div>
+    	<div class="monthShow">
+
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励类别</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<select name="mcontractType" lay-filter="mcontractType" class="mcontractType" lay-verify="required">
+							<option value="0">请选择</option>
+							<option value="3">临时摆展类</option>
+							<option value="4">服务产品类</option>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">项目名称<span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<select name="mprojectId" lay-filter="mprojectId" class="mprojectId" lay-verify="required">
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>物业利润收入</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" name="mpropertyProfit" oninput="value=value.replace(/[^0-9.]+/g,'')" maxlength="9" class="layui-input mpropertyProfit" lay-verify="required" placeholder="请输入物业利润收入">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>税金百分比(%)</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" name="mtaxPercentage" maxlength="5" lay-verify="required" class="layui-input mtaxPercentage" placeholder="请输入税金百分比">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>税金</i></label>
+					<div class="layui-input-inline layui-disabled">
+						<input type="text" name="mtax" readonly class="layui-input mtax" placeholder="请输入税金">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励基数</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="mcardinalNumber" readonly class="layui-input mcardinalNumber" placeholder="请输入激励基数">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励百分比</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="mexcitationPercentage" readonly class="layui-input mexcitationPercentage" placeholder="请输入激励百分比">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励金额</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="mactualAmount" readonly class="layui-input mactualAmount" placeholder="请输入激励金额">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励月度</i></label>
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input mmonth" name="mmonth" id="mmonth" placeholder="请选择激励月度">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励人员</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" maxlength="30" name="mmemberName" class="layui-input mmemberName" placeholder="请输入激励人员">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="yearShow" style="display: none">
+
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励类别</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<select name="ycontractType" lay-filter="ycontractType" class="ycontractType">
+							<option value="">请选择</option>
+							<option value="3">临时摆展类</option>
+							<option value="2,5">管理收入类</option>
+							<option value="4">服务产品类</option>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">项目名称<span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<select name="yprojectId" lay-filter="yprojectId" class="yprojectId">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>物业利润收入</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" maxlength="8" name="ypropertyProfit" oninput="value=value.replace(/[^0-9.]+/g,'')"  class="layui-input ypropertyProfit" placeholder="请输入物业利润收入">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>税金百分比(%)</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" name="ytaxPercentage" class="layui-input ytaxPercentage" placeholder="请输入税金百分比">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>税金</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="ytax" readonly class="layui-input ytax" >
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>管理酬金</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="ymanagementAmount" readonly class="layui-input ymanagementAmount" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>其他成本</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" maxlength="7" oninput="value=value.replace(/[^0-9.]+/g,'')" name="yotherCost" class="layui-input yotherCost" lay-verify="required" placeholder="请输入其他成本">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励年份</i></label>
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input yyear" name="yyear" id="yyear" placeholder="请选择激励年份">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>年初利润指标</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" maxlength="8" oninput="value=value.replace(/[^0-9.]+/g,'')"  name="yprofitIndex" class="layui-input yprofitIndex" lay-verify="required" placeholder="请输入年初利润指标">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励基数</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="ycardinalNumber" readonly class="layui-input ycardinalNumber">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励角色</i></label>
+					<div class="layui-input-inline">
+						<select name="yroleId" lay-filter="yroleId" class="yroleId" placeholder="请输入激励角色">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励百分比(%)</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="yexcitationPercentage" readonly class="layui-input yexcitationPercentage">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>应激励金额</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="yshouldAmount" readonly class="layui-input yshouldAmount">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>在岗天数</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="yarrivalConversion" maxlength="3" oninput="value=value.replace(/[^0-9.]+/g,'')" class="layui-input yarrivalConversion" placeholder="请输入在岗天数">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>其他扣除</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="yotherDeduction" maxlength="8" oninput="value=value.replace(/[^0-9.]+/g,'')" class="layui-input yotherDeduction" placeholder="请输入其他扣除">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>实际激励金额</i></label>
+					<div class="layui-input-inline">
+						<input type="text" name="yactualAmount" readonly class="layui-input yactualAmount">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><i>激励人员</i><span class="layui-badge-dot"/></label>
+					<div class="layui-input-inline">
+						<input type="text" maxlength="30" name="ymemberName" class="layui-input ymemberName" placeholder="请输入激励人员">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="layui-form-item layui-row isShowBtn">
+			<div class="layui-input-block" style="margin-left: 35%">
+				<button class="layui-btn submit" lay-submit lay-filter="addOrEdit" lang="html:submit">提交</button>
+				<button class="layui-btn submit" name="caogao"  lay-submit lay-filter="addOrEdit" lang="html:submit">草稿</button>
+				<button class="layui-btn cancel">取消</button>
+			</div>
+		</div>
+
+    </form>
+
+    <script src="../../../layui/layui.js"></script>
+    <script src="../../../js/common/base.js"></script>
+    <script src="../../../js/common/enums.js"></script>
+	<script src="../../../js/excitation_setup/excitationManage/excitationManageAdd.js"></script>
+</body>
+</html>

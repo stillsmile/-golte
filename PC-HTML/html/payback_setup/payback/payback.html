@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>回款管理</title>
+    <link rel="stylesheet" href="../../../css/iconfont.css" />
+    <link rel="stylesheet" href="../../../layui/css/layui.css" />
+    <link rel="stylesheet" href="../../../css/public.css" />
+    <style>
+        
+    </style>
+</head>
+<body class="childrenBody">
+    <form class="layui-form">
+        <blockquote class="layui-elem-quote quoteBox">
+            <div class="layui-inline">
+                <div class="layui-btn screen">
+                    <i class="iconfont icon-shaixuan"></i>
+                    <span>筛选</span>
+                </div>
+            </div>
+            <!--<div class="layui-inline addShow btnHide">-->
+                <!--<a class="layui-btn layui-btn-normal add_btn">-->
+                    <!--<i class="layui-icon">&#xe61f;</i>-->
+                    <!--<span>添加</span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="layui-inline delShow btnHide">-->
+                <!--<a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">-->
+                    <!--<i class="layui-icon">&#xe640;</i>-->
+                    <!--<span>删除</span>-->
+                <!--</a>-->
+            <!--</div>-->
+        </blockquote>
+        <div class="screen-wrapper">
+            <div class="wrapper">
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">计划回款日期</div>
+                    <div class="layui-col-md9">
+                        <input type="text" class="layui-input" id="paybackTime" placeholder="请选择计划回款日期范围">
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">回款状态</div>
+                    <div class="layui-col-md9">
+                        <select class="paybackStatus" name="paybackStatus" lay-filter="paybackStatus">
+                            <option value=""></option>
+                            <option value="1">未到期</option>
+                            <option value="2">逾期未回款</option>
+                            <option value="3">已完成</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">合同名称</div>
+                    <div class="layui-col-md9">
+                        <input type="text" class="layui-input name" placeholder="请输入合同名称">
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">合同负责人</div>
+                    <div class="layui-col-md9">
+                        <input type="text" class="layui-input contractPerson" placeholder="请输入合同负责人">
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">合作商家</div>
+                    <div class="layui-col-md9">
+                        <input type="text" class="layui-input merchantName" placeholder="请输入合作商家">
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">中心城市</div>
+                    <div class="layui-col-md9">
+                        <select class="centralCityId" name="centralCityId" lay-filter="centralCityId">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-row row">
+                    <div class="layui-col-md3 screen-title">城市</div>
+                    <div class="layui-col-md9">
+                        <select class="cityId" name="cityId" lay-filter="cityId">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="screenBtn">
+                    <a class="layui-btn search_btn">搜索</a>
+                    <button class="layui-btn reset">重置</button>
+                </div>
+            </div>
+        </div>
+        <!--数据表格-->
+        <table id="tableList" lay-filter="tableList"></table>
+    </form>
+
+    <script src="../../../layui/layui.js"></script>
+    <script src="../../../js/common/base.js"></script>
+    <script src="../../../js/payback_setup/payback/payback.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请回款延期</title>
+    <link rel="stylesheet" href="../../../css/iconfont.css"/>
+    <link rel="stylesheet" href="../../../layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../layui/css/formSelects-v4.css"/>
+    <link rel="stylesheet" href="../../../css/goodsAdd.css"/>
+    <style>
+        .xm-select-tips {
+            display: none !important;
+        }
+        input{
+            text-align:center;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+    <input type="hidden" class="mer" value="">
+    <input type="hidden" class="sign"/>
+    <input type="hidden" class="paybackPlanId">
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合作商家</span><span class="layui-badge-dot"></span></label>
+            <div class="layui-input-block">
+                <select name="merchantId" lay-filter="merchantId" class="merchantId" disabled>
+                    <option value="">请选择合作商家</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合同名称</span><span class="layui-badge-dot"></span></label>
+            <div class="layui-input-block">
+                <select name="contractId" lay-filter="contractId" class="contractId" disabled>
+                    <option value="">请选择合同名称</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>合同金额</span><span class="layui-badge-dot"></span></label>
+            <div class="layui-input-block">
+                <input maxlength="60" type="text" class="layui-input contractAmount" name="contractAmount" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label">
+                <span >合同生效日</span>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input deadlineStartTime" id="deadlineStartTime" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label">
+                <span >合同到期日</span>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input deadlineEndTime" id="deadlineEndTime" disabled>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <label class="layui-form-label">
+                <span >签约日期</span>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input signingTime" id="signingTime" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-col-md4">
+            <label class="layui-form-label"><span>回款明细</span></label>
+            <div class="layui-input-block">
+                <table id="table" class="layui-table" style="width: 1240px">
+                    <thead>
+                    <tr>
+                        <td>使用资源</td>
+                        <td>收费模式</td>
+                        <td>付款周期</td>
+                        <td>单价（元/%）</td>
+                        <td>数量</td>
+                        <td>小计（元）</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <thead>
+                    <tr>
+                        <td class="resourceName"></td>
+                        <td class="tollMode"></td>
+                        <td class="paymentCycle"></td>
+                        <td class="unitPrice"></td>
+                        <td class="number"></td>
+                        <td class="subtotal"></td>
+                    </tr>
+                    </thead>
+                    </tbody>
+
+                    <tr class="project">
+                        <td>序号</td>
+                        <td>计划回款日期</td>
+                        <td>计划回款金额（元）</td>
+                        <td>已回款金额</td>
+                        <td>未回款金额</td>
+                        <td></td>
+                    </tr>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="planPaybackTime"></td>
+                        <td class="receivablePayback"></td>
+                        <td class="receivedAmount"></td>
+                        <td class="noReceivedAmount"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                    <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>延期回款日期</td>
+                        <td>延期回款金额（元）</td>
+                        <td colspan="3">延期原因</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" class="layui-input extensionTime" placeholder="请输入延期回款日期" id="extensionTime" lay-verify="required"></td>
+                        <td><input oninput="if(value>999999999)value=999999999" type="number" class="layui-input extensionAmount" placeholder="请输入延期回款金额" name="extensionAmount" lay-verify="number"></td>
+                        <td colspan="3"><input maxlength="200" type="text" class="layui-input extensionReason" placeholder="请输入延期原因" name="extensionReason"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+    </div>
+    <div class="layui-form-item layui-row">
+        <div class="layui-input-block">
+            <button class="layui-btn submit" lay-submit lay-filter="addOrEdit">提交</button>
+            <a class="layui-btn cancel">取消</a>
+        </div>
+    </div>
+</form>
+
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/common/base.js"></script>
+<script src="../../../layui/formSelects-v4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/payback_setup/paybackApproval/paybackApprovalAdd.js"></script>
+</body>
+</html>

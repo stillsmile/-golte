@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="loginHtml">
+<head>
+    <meta charset="utf-8">
+    <title>高地项目管理系统</title>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+</head>
+<body class="loginBody">
+<div class="logo"><img src="images/logo.png"></div>
+
+<form class="layui-form">
+    <!--<div class="login_face"><img src="images/face.png" class="userAvatar"></div>-->
+    <div class="layui-form-item input-item">
+        <label for="loginAccount" id="account">用户名</label>
+        <input type="text" id="loginAccount" name="loginAccount" class="layui-input loginAccount" lay-verify="loginAccount">
+    </div>
+    <div class="layui-form-item input-item">
+        <label for="password" id="pwd">密码</label>
+        <input type="password" id="password" name="password" class="layui-input password" lay-verify="password">
+    </div>
+    <div class="layui-form-item input-item" id="imgCode">
+        <label for="code" id="codeTxt" lang="html:code">验证码</label>
+        <input type="text" lang="placeholder:code_placeholder" id="code" class="layui-input code" lay-verify="required">
+        <img src="images/code.jpg" height="36" id="codeClick">
+    </div>
+    <div style="text-align: left" class="remember-wrap">
+        <input type="checkbox" class="rememberPwd" lay-skin="primary" title="记住密码" lang="title:remember_password">
+    </div>
+    <div class="layui-form-item mtop30">
+        <a class="layui-btn layui-block login" >登录</a>
+    </div>
+</form>
+
+<script src="layui/layui.js"></script>
+<script src="js/common/minicolors.min.js"></script>
+<script src="js/common/base.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

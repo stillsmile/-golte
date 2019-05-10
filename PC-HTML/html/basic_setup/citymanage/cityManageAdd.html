@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>新增中心城市</title>
+	<link rel="stylesheet" href="../../../layui/css/layui.css"/>
+	<link rel="stylesheet" href="../../../css/public.css"/>
+    <link rel="stylesheet" href="../../../layui/css/formSelects-v4.css"/>
+</head>
+<body class="childrenBody">
+    <input type="hidden" class="sign"/>
+    <input type="hidden" class="empId"/>
+    <form class="layui-form">
+        <div class="magb15 layui-col-md4">
+            <label class="layui-form-label">
+                <i>中心城市</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <select name="centralCityName" lay-filter="centralCityName" class="centralCityName" lay-verify="required">
+                </select>
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4">
+            <label class="layui-form-label">
+                <i>城市</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <input maxlength="30" type="text" class="layui-input cityName" name="cityName" lay-verify="required" placeholder="请输入城市名称">
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">
+                <i>城市分公司负责人</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+
+                <select name="cityLeaderName" lay-filter="cityLeaderName" class="cityLeaderName" lay-verify="required">
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">
+                <i>经营部分负责人</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+
+                <select name="departmentLeaderName" lay-filter="departmentLeaderName" class="departmentLeaderName" lay-verify="required">
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">
+                <i>录入人员</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <select xm-select="multiRole" xm-select-skin="primary" name="enterPersonIds" lay-filter="enterPersonIds"
+                        class="enterPersonIds" lay-verify="required">
+                </select>
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4">
+            <label class="layui-form-label">
+                <i>年度指标(万元)</i>
+                <span class="layui-badge-dot"></span>
+            </label>
+            <div class="layui-input-block">
+                <input maxlength='10' class="layui-input yearTarget" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" name="yearTarget" lay-verify="required|number" placeholder="请输入年度指标">
+            </div>
+        </div>
+        <div class="modleBtn">
+            <div class="layui-form-item">
+                <button class="layui-btn" lay-filter="addOrEdit" lay-submit id="submit">提交</button>
+                <button class="layui-btn cancel">取消</button>
+            </div>
+        </div>
+    </form>
+
+    <script src="../../../layui/layui.js"></script>
+    <script src="../../../js/common/base.js"></script>
+    <script src="../../../js/common/enums.js"></script>
+    <script src="../../../layui/formSelects-v4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/basic_setup/citymanage/cityManageAdd.js"></script>
+</body>
+</html>

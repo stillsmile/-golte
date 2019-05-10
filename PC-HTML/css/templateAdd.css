@@ -1,0 +1,34 @@
+.tip-text {
+    margin-top: 10px;
+    color: #101010;
+    font-size: 14px;
+}
+
+.multi-item {
+    border: 1px solid #BBBBBB;
+    padding: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.multi-btn-container {
+    margin-bottom: 5px;
+}
+
+.multi-item .multi-close {
+    position: absolute;
+    color: #101010;
+    font-size: 24px;
+    top: 0;
+    right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.multi-upload-icon {
+    font-size: 50px;
+    color: #08ACD7;
+}
+dd{
+  width: 200px;
+}
