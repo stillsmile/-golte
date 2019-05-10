@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GExceptionMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GException">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="EXCEPTION_URL" jdbcType="NVARCHAR" property="exceptionUrl" />
+    <result column="EXCEPTION_CONTENT" jdbcType="LONGNVARCHAR" property="exceptionContent" />
+    <result column="CREATE_USER" jdbcType="NVARCHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GResourceProjectDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GResourceProjectDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="PROJECT_ID" property="projectId" jdbcType="BIGINT" />
+    <result column="POINT_ID" property="pointId" jdbcType="BIGINT" />
+    <result column="ASSETS_CODE" property="assetsCode" jdbcType="NVARCHAR" />
+    <result column="ASSETS_NAME" property="assetsName" jdbcType="NVARCHAR" />
+    <result column="ASSETS_UNIT" property="assetsUnit" jdbcType="NVARCHAR" />
+    <result column="DEL_STATUS" property="delStatus" jdbcType="NVARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_NAME" property="createName" jdbcType="NVARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_NAME" property="updateName" jdbcType="NVARCHAR" />
+    </resultMap>
+
+    <select id="selectProjectDetailListByCondition" resultType="com.golte.resource.service.data.GetProjectDetailOutData"
+            parameterType="com.golte.resource.service.data.GetProjectDetailInData">
+        SELECT
+        rpd.ID id, c.CITY_NAME cityName,rpd.PROJECT_ID projectId,rp.PROJECT_NAME projectName,rpo.NAME zcName,rpd.ASSETS_CODE assetsCode,rpd.ASSETS_NAME assetsName,
+        rpd.ASSETS_UNIT assetsUnit,rpo1.PARENT_ID firstPointId,rpo.PARENT_ID towPointId,rpd.POINT_ID pointId,mt.NAME merchantName,co.NAME contractName,cp.UNIT_PRICE amount
+        FROM
+        g_resource_project_detail rpd
+        LEFT JOIN g_resource_project rp ON rp.ID = rpd.PROJECT_ID
+        LEFT JOIN g_city c ON c.ID = rp.CITY_ID
+        LEFT JOIN g_resource_point rpo ON rpo.ID = rpd.POINT_ID  ---三级点位
+        LEFT JOIN g_resource_point rpo1 ON rpo1.ID = rpo.PARENT_ID  ---二级点位
+        LEFT JOIN g_resource_point rpo2 ON  rpo2.ID = rpo1.PARENT_ID  --一级点位
+        LEFT JOIN g_contract_resource cr ON cr.RESOURCE_ID = rpd.ID
+        LEFT JOIN g_contract_project cp ON cp.ID = cr.CONTRACT_PROJECT_ID AND cp.POINT_ID =rpd.POINT_ID
+        LEFT JOIN g_contract co ON co.ID = cr.CONTRACT_ID
+        LEFT JOIN g_merchant mt ON mt.ID = co.MERCHANT_ID
+        WHERE  rpd.DEL_STATUS ='1'AND (co.DEL_STATUS='1' or co.DEL_STATUS is NULL)
+
+        <if test="cityIds != null and cityIds.size()>0">
+            AND c.ID IN
+            <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+        <if test="centralCityId != null and centralCityId != ''">
+            and rp.CENTRAL_CITY_ID = #{centralCityId}
+        </if>
+        <if test="cityId != null and cityId != ''">
+            and rp.CITY_ID = #{cityId}
+        </if>
+        <if test="projectName != null and projectName != ''">
+            AND rp.PROJECT_NAME like '%' + #{projectName} + '%'
+        </if>
+        <if test="merchantName != null and merchantName != ''">
+            AND mt.NAME like '%' + #{merchantName} + '%'
+        </if>
+        <if test="contractName != null and contractName != ''">
+            AND co.NAME like '%' + #{contractName} + '%'
+        </if>
+        /*是否签约查询*/
+        <if test="isSigned == 1">
+            AND cp.CONTRACT_ID is  NULL
+            AND co.ID is  NULL
+            OR CONVERT(varchar,GETDATE(),120) &lt; co.DEADLINE_START_TIME OR CONVERT(varchar,GETDATE(),120) &gt; co.DEADLINE_END_TIME
+        </if>
+        <if test="isSigned == 2">
+            AND co.DEADLINE_START_TIME &lt;= CONVERT(varchar,GETDATE(),120)  AND co.DEADLINE_END_TIME &gt;= CONVERT(varchar,GETDATE(),120)
+        </if>
+        /*三级点位查询*/
+        <if test="level == 1">
+            AND rpo2.ID = #{resourceId}
+        </if>
+        <if test="level == 2">
+            AND rpo1.ID = #{resourceId}
+        </if>
+        <if test="level == 3">
+            AND rpo.ID = #{resourceId}
+        </if>
+        ORDER BY rpd.CREATE_TIME DESC
+
+    </select>
+
+    <select id="selectProjectDetailListByCityId" resultType="com.golte.resource.service.data.GetProjectDetailOutData"
+            parameterType="com.golte.resource.service.data.GetProjectDetailInData">
+
+        SELECT
+        rp.ID,rp.PROJECT_NAME
+        FROM g_resource_project  rp
+        WHERE rp.DEL_STATUS ='1'
+        <if test="cityIds != null and cityIds.size()>0">
+            AND rp.CITY_ID IN
+            <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+    </select>
+
+    <select id="selectResourceTypeList" resultType="com.golte.system.service.data.GetMainTopOutData"
+                                    parameterType="com.golte.system.service.data.GetMainInData">
+        SELECT
+        rp1.NAME name,COUNT( rp1.NAME) value
+        FROM
+        g_contract_project cp
+        LEFT JOIN g_resource_point rp ON rp.ID = cp.POINT_ID
+        LEFT JOIN g_resource_point rp1 ON rp1.ID = rp.PARENT_ID
+        LEFT JOIN g_contract co ON co.ID = cp.CONTRACT_ID
+        WHERE
+        rp.PARENT_ID IN (
+        SELECT ID
+        FROM g_resource_point rp
+        WHERE DEL_STATUS = '1'
+        AND LEVEL = '2'
+        )
+        <if test="cityId != null and cityId != ''">
+            and co.CITY_ID = #{cityId}
+        </if>
+        AND co.DEADLINE_START_TIME &lt;= CONVERT(varchar,GETDATE(),120)  AND co.DEADLINE_END_TIME &gt;= CONVERT(varchar,GETDATE(),120)
+        group by rp1.NAME ORDER BY  value DESC
+
+    </select>
+
+    <select id="selectExitsNum" resultType="com.golte.resource.service.data.GetProjectDetailOutData"
+            parameterType="java.lang.Long">
+        SELECT
+        rpd.ASSETS_CODE assetsCode,
+        rpd.ASSETS_NAME assetsName
+        FROM g_resource_project_detail rpd
+        LEFT JOIN g_contract_project cp ON cp.PROJECT_ID = rpd.PROJECT_ID AND cp.POINT_ID = rpd.POINT_ID
+        LEFT JOIN g_contract ct ON ct.ID = cp.CONTRACT_ID
+        WHERE ct.DEADLINE_START_TIME &lt;= CONVERT(varchar,GETDATE(),120)
+        AND ct.DEADLINE_END_TIME >= CONVERT(varchar,GETDATE(),120)
+        AND rpd.ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectResourceTypeListDetail" resultType="com.golte.system.service.data.GetMainTopOutData"
+            parameterType="com.golte.system.service.data.GetMainInData">
+            SELECT
+            row_number()OVER(ORDER BY cp.CREATE_TIME DESC) sortNum,
+            rp1.NAME name,
+            co.NAME contractName,
+            CONVERT(varchar(100), co.DEADLINE_START_TIME, 23) startTime,
+            CONVERT(varchar(100), co.DEADLINE_END_TIME, 23) endTime
+            FROM g_contract_project cp
+            LEFT JOIN g_resource_point rp ON rp.ID = cp.POINT_ID
+            LEFT JOIN g_resource_point rp1 ON rp1.ID = rp.PARENT_ID
+            LEFT JOIN g_contract co ON co.ID = cp.CONTRACT_ID
+            WHERE
+            rp.PARENT_ID IN (
+            SELECT ID
+            FROM g_resource_point
+            WHERE DEL_STATUS = '1'
+            AND LEVEL = '2'
+            )
+            AND co.DEADLINE_START_TIME &lt;= CONVERT(varchar,GETDATE(),120)  AND co.DEADLINE_END_TIME &gt;= CONVERT(varchar,GETDATE(),120)
+            <if test="typeName != null and typeName != ''">
+                AND rp1.NAME = #{typeName}
+            </if>
+            <if test="cityId != null and cityId != ''">
+                AND co.CITY_ID = #{cityId}
+            </if>
+
+    </select>
+
+</mapper>

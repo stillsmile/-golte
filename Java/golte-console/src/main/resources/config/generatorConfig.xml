@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />  
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.golte.common.util.BaseMapper"/>
+        </plugin>
+        
+
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://172.16.0.202:1433;databasename=golte_dev"
+                        userId="golte"
+                        password="golte">
+        </jdbcConnection>
+
+        <!-- 对于生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.golte.mapper.entity" targetProject="D:\workspace\golte-console\src\main\java"/>
+                                                                                                                          
+		<!-- 对于生成的mapper所在目录 -->  
+        <sqlMapGenerator targetPackage="mapper" targetProject="D:\workspace\golte-console\src\main\resources"/>
+
+		<!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.golte.mapper" targetProject="D:\workspace\golte-console\src\main\java"
+                             type="XMLMAPPER"/>
+
+
+        <!--<table tableName="g_contract_old">-->
+            <!--&lt;!&ndash;sqlserver 配置&ndash;&gt;-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+            <!--&lt;!&ndash;mysql 配置&ndash;&gt;-->
+            <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;oracle 配置&ndash;&gt;-->
+            <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>&ndash;&gt;-->
+		 <!--</table>-->
+        <!--<table tableName="g_resource_point">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_contract_project_up">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_contract_resource_old">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="g_contract_approval">
+            <generatedKey column="id" sqlStatement="SqlServer" identity="true"/>
+        </table>
+        <!--<table tableName="g_contract_termination">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_contract_project_up">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_contract_resource_up">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_payback_plan">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_payback_record">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="g_payback_approval">-->
+            <!--<generatedKey column="id" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GContractApprovalMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GContractApproval">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="TYPE" jdbcType="NVARCHAR" property="type" />
+    <result column="SUPPER_EMPLOYEE_ID" jdbcType="NVARCHAR" property="supperEmployeeId" />
+    <result column="STATUS" jdbcType="NVARCHAR" property="status" />
+    <result column="OPINION" jdbcType="NVARCHAR" property="opinion" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="APPROVAL_TIME" jdbcType="TIMESTAMP" property="approvalTime" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="APPROVE_EMPLOYEE_ID" jdbcType="BIGINT" property="approveEmployeeId" />
+  </resultMap>
+  <select id="selectListByCondition" parameterType="com.golte.log.service.data.GetLogInData" resultType="com.golte.log.service.data.GetLogOutData">
+    SELECT
+    a.ID id, CONVERT(varchar(100), a.CREATE_TIME, 20) createTime,b.NAME contractName,a.TYPE type,a.STATUS status,
+    a.CREATE_NAME createName,a.SUPPER_EMPLOYEE_ID supperEmpId,c.EMP_NAME approvedName
+    FROM g_contract_approval a
+    LEFT JOIN g_contract b on a.CONTRACT_ID = b.ID
+    LEFT JOIN g_employee c ON a.APPROVE_EMPLOYEE_ID = c.ID
+    WHERE 1=1
+    <if test="contractName!=null and contractName!=''">
+      AND b.NAME LIKE '%${contractName}%'
+    </if>
+    <if test="status!=null and status!=''">
+      AND a.STATUS = #{status}
+    </if>
+    ORDER BY a.CREATE_TIME DESC
+  </select>
+</mapper>

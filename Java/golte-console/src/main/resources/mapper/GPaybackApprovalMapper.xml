@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GPaybackApprovalMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GPaybackApproval">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="PAYBACK_PLAN_ID" jdbcType="BIGINT" property="paybackPlanId" />
+    <result column="EXTENSION_DAY_NUM" jdbcType="INTEGER" property="extensionDayNum" />
+    <result column="EXTENSION_AMOUNT" jdbcType="DECIMAL" property="extensionAmount" />
+    <result column="EXTENSION_REASON" jdbcType="NVARCHAR" property="extensionReason" />
+    <result column="SUPPER_EMPLOYEE_ID" jdbcType="NVARCHAR" property="supperEmployeeId" />
+    <result column="STATUS" jdbcType="NVARCHAR" property="status" />
+    <result column="OPINION" jdbcType="NVARCHAR" property="opinion" />
+    <result column="EXTENSION_TIME" jdbcType="TIMESTAMP" property="extensionTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="APPROVAL_TIME" jdbcType="TIMESTAMP" property="approvalTime" />
+    <result column="APPROVE_EMPLOYEE_ID" jdbcType="BIGINT" property="approveEmployeeId" />
+  </resultMap>
+</mapper>

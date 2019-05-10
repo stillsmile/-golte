@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GContractResourceUpMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GContractResourceUp">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="CONTRACT_PROJECT_ID" jdbcType="BIGINT" property="contractProjectId" />
+    <result column="RESOURCE_ID" jdbcType="BIGINT" property="resourceId" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GConfigureMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GConfigure" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="COG_KEY" property="cogKey" jdbcType="NVARCHAR" />
+    <result column="COG_VALUE" property="cogValue" jdbcType="NVARCHAR" />
+    <result column="COG_NAME" property="cogName" jdbcType="NVARCHAR" />
+    <result column="COG_EXTEND_ONE" property="cogExtendOne" jdbcType="NVARCHAR" />
+    <result column="COG_EXTEND_TWO" property="cogExtendTwo" jdbcType="NVARCHAR" />
+    <result column="CREATE_NAME" property="createName" jdbcType="NVARCHAR" />
+    <result column="UPDATE_NAME" property="updateName" jdbcType="NVARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectConfigInfo" resultType="com.golte.system.service.data.GetMainOutData"
+          parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    *
+    FROM g_configure c
+    WHERE ct.DEL_STATUS = '1' AND ct.DARFT_STATUS='0'
+    <if test="cityId != null and cityId != ''">
+      AND ct.CITY_ID = #{cityId}
+    </if>
+    <if test="year != null and year != ''">
+      AND Datename(YEAR,ct.DEADLINE_START_TIME) = #{year}
+    </if>
+  </select>
+
+
+</mapper>

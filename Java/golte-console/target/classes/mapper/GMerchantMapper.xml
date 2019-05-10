@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GMerchantMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GMerchant">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CODE" jdbcType="NVARCHAR" property="code" />
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="LEVEL" jdbcType="NVARCHAR" property="level" />
+    <result column="CONTACT" jdbcType="NVARCHAR" property="contact" />
+    <result column="CONTACT_PHONE" jdbcType="NVARCHAR" property="contactPhone" />
+    <result column="CONTACT_2" jdbcType="NVARCHAR" property="contact2" />
+    <result column="CONTACT_PHONE_2" jdbcType="NVARCHAR" property="contactPhone2" />
+    <result column="CITY" jdbcType="NVARCHAR" property="city" />
+    <result column="CONPANY_ADDRESS" jdbcType="NVARCHAR" property="conpanyAddress" />
+    <result column="DETAILED_ADDRESS" jdbcType="NVARCHAR" property="detailedAddress" />
+    <result column="SUPPLIER_TYPE" jdbcType="NVARCHAR" property="supplierType" />
+    <result column="REMARKS" jdbcType="NVARCHAR" property="remarks" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="CENTRAL_CITY_ID" jdbcType="BIGINT" property="centralCityId" />
+  </resultMap>
+  <select id="selectListByCondition" parameterType="com.golte.business.service.data.GetMerchantInData" resultType="com.golte.business.service.data.GetMerchantOutData">
+    SELECT
+      m.ID id,m.CODE code,m. LEVEL LEVEL,m.NAME name,m.CONTACT contact,m.CONTACT_PHONE contactPhone,m.SUPPLIER_TYPE supplierType,
+      m.remarks remarks,m.DETAILED_ADDRESS detailedAddress,m.CONTACT_2 contact2,m.CONTACT_PHONE_2 contactPhone2,m.CENTRAL_CITY_ID centralCityId,m.CITY cityId,m.CONPANY_ADDRESS conpanyAddress,
+      (
+      SELECT COUNT(c.ID) FROM g_contract c
+      WHERE c.MERCHANT_ID =m.ID AND  c.DEL_STATUS = '1'
+
+      ) heTongNum,
+      (
+      SELECT ISNULL(SUM (c.AMOUNT),0) FROM g_contract c
+      WHERE c.MERCHANT_ID =m.ID AND  c.DARFT_STATUS ='0'
+      ) amount
+      FROM g_merchant m
+      WHERE m.DEL_STATUS = '1'
+
+    /*权限控制*/
+    <if test="cityIds != null and cityIds.size()>0">
+      AND (m.CITY IN
+      <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+        #{item}
+      </foreach>
+        or m.LEVEL=1)
+    </if>
+
+    <if test="level != null and level != ''">
+      AND  m.LEVEL = #{level}
+    </if>
+    <if test="name != null and name != ''">
+      AND m.NAME like '%' + #{name} + '%'
+    </if>
+    <if test="contact != null and contact != ''">
+      AND m.CONTACT like '%' + #{contact} + '%'
+    </if>
+    <if test="contactPhone != null and contactPhone != ''">
+      AND m.CONTACT_PHONE like '%' + #{contactPhone} + '%'
+    </if>
+    <if test="supplierType != null and supplierType != ''">
+      AND  m.SUPPLIER_TYPE = #{supplierType}
+    </if>
+    <if test="city != null and city != ''">
+      AND m.CITY = #{city}
+    </if>
+    ORDER BY m.CREATE_TIME DESC
+  </select>
+
+</mapper>

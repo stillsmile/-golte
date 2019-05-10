@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GContractProjectUpMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GContractProjectUp">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="APPROVAL_ID" jdbcType="BIGINT" property="approvalId" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="TYPE" jdbcType="NVARCHAR" property="type" />
+    <result column="PROJECT_ID" jdbcType="BIGINT" property="projectId" />
+    <result column="CONTRACT_PROJECT_ID" jdbcType="BIGINT" property="contractProjectId" />
+    <result column="POINT_ID" jdbcType="BIGINT" property="pointId" />
+    <result column="TOLL_MODE" jdbcType="NVARCHAR" property="tollMode" />
+    <result column="PAYMENT_CYCLE" jdbcType="NVARCHAR" property="paymentCycle" />
+    <result column="UNIT_PRICE" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="NUMBER" jdbcType="INTEGER" property="number" />
+    <result column="SUBTOTAL" jdbcType="DECIMAL" property="subtotal" />
+    <result column="REASON" jdbcType="NVARCHAR" property="reason" />
+    <result column="EFFECTIVE_TIME" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UNIT_NAME" jdbcType="NVARCHAR" property="unitName" />
+  </resultMap>
+</mapper>

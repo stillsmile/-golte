@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GResourcePointMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GResourcePoint">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="PARENT_ID" jdbcType="BIGINT" property="parentId" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="LEVEL" jdbcType="INTEGER" property="level" />
+    <result column="PROJECT_ID" jdbcType="BIGINT" property="projectId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+  </resultMap>
+
+  <select id="selectPointByParentId" parameterType="com.golte.system.service.data.GetResourcePointInData" resultType="com.golte.system.service.data.GetResourcePointOutData">
+    SELECT
+    r.ID id, r.NAME name, r.PARENT_ID parentId, r.DEL_STATUS delStatus
+    FROM g_resource_point r
+    WHERE  r.PARENT_ID = #{parentId} AND r.DEL_STATUS ='1'
+    <if test="projectId != null and projectId != ''">
+      AND r.PROJECT_ID = #{projectId}
+    </if>
+  </select>
+
+  <select id="selectPointInfoByid" parameterType="com.golte.system.service.data.GetResourcePointInData" resultType="com.golte.system.service.data.GetResourcePointOutData">
+      SELECT
+        rp.ID id,
+        rp.PARENT_ID parentId,
+        rp1.PARENT_ID firstParentId
+    FROM
+        g_resource_point rp
+    LEFT JOIN g_resource_point rp1 ON rp1.ID = rp.PARENT_ID
+    WHERE
+        rp.ID = #${id}
+  </select>
+
+  <select id="selectPointTreeList" resultType="com.golte.resource.service.data.GetPointTreeOutData">
+    SELECT
+    r.ID id, r.NAME name, r.PARENT_ID pid,r.LEVEL level, r.DEL_STATUS delStatus,rp.NAME pname
+    FROM g_resource_point r
+    LEFT JOIN g_resource_point rp ON rp.ID = r.PARENT_ID
+    WHERE r.DEL_STATUS = '1'
+  </select>
+
+  <select id="selectPointTableList" parameterType="com.golte.resource.service.data.GetPointInData" resultType="com.golte.resource.service.data.GetPointTableOutData">
+    SELECT
+    rp3.ID,
+    rp3.NAME name,
+    rp2.NAME secondName,
+    rp1.NAME firstName
+    FROM g_resource_point rp3
+    LEFT JOIN g_resource_point rp2 ON rp2.ID = rp3.PARENT_ID
+    LEFT JOIN g_resource_point rp1 ON rp1.ID = rp2.PARENT_ID
+    WHERE rp3.DEL_STATUS = '1'
+    <if test="level !=1 and id != null and id != ''">
+      AND rp3.PARENT_ID =#{id}
+    </if>
+    <if test="level !=2 and id != null and id != ''">
+      AND rp3.PARENT_ID IN (
+        SELECT ID FROM g_resource_point
+        WHERE DEL_STATUS = '1'
+        AND PARENT_ID = #{id}
+      )
+    </if>
+    ORDER BY rp3.CREATE_TIME DESC
+
+  </select>
+
+</mapper>

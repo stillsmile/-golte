@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GExcitationMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GExcitation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="TYPE" jdbcType="NVARCHAR" property="type" />
+    <result column="CONTRACT_TYPE" jdbcType="NVARCHAR" property="contractType" />
+    <result column="PROJECT_ID" jdbcType="BIGINT" property="projectId" />
+    <result column="PROPERTY_PROFIT" jdbcType="DECIMAL" property="propertyProfit" />
+    <result column="PROFIT_INDEX" jdbcType="NVARCHAR" property="profitIndex" />
+    <result column="TAX_PERCENTAGE" jdbcType="DOUBLE" property="taxPercentage" />
+    <result column="TAX" jdbcType="DECIMAL" property="tax" />
+    <result column="MANAGEMENT_AMOUNT" jdbcType="DECIMAL" property="managementAmount" />
+    <result column="OTHER_COST" jdbcType="DECIMAL" property="otherCost" />
+    <result column="CARDINAL_NUMBER" jdbcType="NVARCHAR" property="cardinalNumber" />
+    <result column="ROLE_ID" jdbcType="BIGINT" property="roleId" />
+    <result column="EXCITATION_PERCENTAGE" jdbcType="DOUBLE" property="excitationPercentage" />
+    <result column="SHOULD_AMOUNT" jdbcType="DECIMAL" property="shouldAmount" />
+    <result column="ARRIVAL_CONVERSION" jdbcType="DECIMAL" property="arrivalConversion" />
+    <result column="OTHER_DEDUCTION" jdbcType="DECIMAL" property="otherDeduction" />
+    <result column="ACTUAL_AMOUNT" jdbcType="DECIMAL" property="actualAmount" />
+    <result column="MONTH" jdbcType="NVARCHAR" property="month" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="STATUS" jdbcType="NVARCHAR" property="status" />
+    <result column="MEMBER_NAME" jdbcType="NVARCHAR" property="memberName" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+
+  <select id="selectListByCondition" resultType="com.golte.excitation.service.data.ExcitationOutData"
+          parameterType="com.golte.excitation.service.data.ExcitationInData">
+    SELECT
+        e.ID id,
+        (SELECT SUM(PAYBACK_AMOUNT) FROM g_payback_record WHERE CONTRACT_PROJECT_ID IN (SELECT cp.ID FROM g_contract_project cp WHERE cp.PROJECT_ID =  e.PROJECT_ID) ) paybackamount,
+        e.CONTRACT_TYPE contractType
+        ,rp.PROJECT_NAME projectName,e.PROJECT_ID projectId,cy.CITY_NAME cityName, e.TYPE type,e.MEMBER_NAME memberName
+        ,PROPERTY_PROFIT propertyProfit,e.ACTUAL_AMOUNT actualAmount,e.TAX_PERCENTAGE taxPercentage,e.TAX tax
+        ,e.CARDINAL_NUMBER cardinalNumber,e.EXCITATION_PERCENTAGE excitationPercentage,e.MONTH month
+        ,e.OTHER_COST otherCost,e.PROFIT_INDEX profitIndex,e.ROLE_ID roleId,e.SHOULD_AMOUNT shouldAmount
+        ,e.ARRIVAL_CONVERSION arrivalConversion,e.MANAGEMENT_AMOUNT managementAmount,e.OTHER_DEDUCTION otherDeduction,e.STATUS status
+    FROM g_excitation e
+    LEFT JOIN g_resource_project rp ON rp.ID = e.PROJECT_ID
+    LEFT JOIN g_city cy ON cy.ID = rp.CITY_ID
+    WHERE e.DEL_STATUS = '1'
+      <if test="cityIds != null and cityIds.size()>0">
+        AND cy.ID IN
+        <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+      <if test="type != null and type != ''">
+          AND e.type = #{type}
+      </if>
+      <if test="projectName != null and projectName != ''">
+        AND rp.PROJECT_NAME like '%' + #{projectName} + '%'
+      </if>
+      <if test="memberName != null and memberName != ''">
+        AND e.MEMBER_NAME like '%' + #{memberName} + '%'
+      </if>
+      <if test="contractType != null and contractType != ''">
+        AND e.CONTRACT_TYPE = #{contractType}
+      </if>
+      <if test="type==1 and starttime != null and starttime != ''">
+        AND e.MONTH &gt;= #{starttime}
+      </if>
+      <if test="type==1 and endtime != null and endtime != ''">
+        AND e.MONTH &lt;= #{endtime}
+      </if>
+      <if test="type==2 and yyear != null and yyear != ''">
+        AND e.MONTH = #{yyear}
+      </if>
+    ORDER BY e.CREATE_TIME DESC
+  </select>
+
+
+</mapper>

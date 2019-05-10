@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GAnnexMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GAnnex" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="TYPE" property="type" jdbcType="NCHAR" />
+    <result column="ASSOCIATION_ID" property="associationId" jdbcType="BIGINT" />
+    <result column="NAME" property="name" jdbcType="NCHAR" />
+    <result column="URL" property="url" jdbcType="NCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectUploadFileList" resultType="com.golte.business.service.data.GetFileOutData"
+          parameterType="com.golte.business.service.data.GetFileInData">
+    SELECT
+    ASSOCIATION_ID id,a.NAME NAME, a.URL url
+    FROM g_annex a
+    WHERE '1'='1'
+    <if test="type != null and type != ''">
+      AND  a.TYPE = #{type}
+    </if>
+    <if test="associationId != null and associationId != ''">
+      AND  a.ASSOCIATION_ID = #{associationId}
+    </if>
+    ORDER BY a.CREATE_TIME DESC
+  </select>
+
+</mapper>

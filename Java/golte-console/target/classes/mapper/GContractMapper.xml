@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GContractMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GContract">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CODE" jdbcType="NVARCHAR" property="code" />
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="CENTRAL_CITY_ID" jdbcType="BIGINT" property="centralCityId" />
+    <result column="CITY_ID" jdbcType="BIGINT" property="cityId" />
+    <result column="MERCHANT_ID" jdbcType="BIGINT" property="merchantId" />
+    <result column="MERCHANT_CONTACT" jdbcType="NCHAR" property="merchantContact" />
+    <result column="MERCHANT_CONTACT_PHONE" jdbcType="NCHAR" property="merchantContactPhone" />
+    <result column="SIGNING_CONTACT" jdbcType="NCHAR" property="signingContact" />
+    <result column="SIGNING_CONTACT_PHONE" jdbcType="NCHAR" property="signingContactPhone" />
+    <result column="SIGNING_TIME" jdbcType="TIMESTAMP" property="signingTime" />
+    <result column="DEADLINE_START_TIME" jdbcType="TIMESTAMP" property="deadlineStartTime" />
+    <result column="DEADLINE_END_TIME" jdbcType="TIMESTAMP" property="deadlineEndTime" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="MARGIN" jdbcType="DECIMAL" property="margin" />
+    <result column="SIGNING_TYPE" jdbcType="NVARCHAR" property="signingType" />
+    <result column="CONTRACT_TYPE" jdbcType="NVARCHAR" property="contractType" />
+    <result column="DARFT_STATUS" jdbcType="NVARCHAR" property="darftStatus" />
+    <result column="PAYBACK_TYPE" jdbcType="NVARCHAR" property="paybackType" />
+    <result column="CONTRACT_STATUS" jdbcType="NVARCHAR" property="contractStatus" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="APPROVAL_TIME" jdbcType="TIMESTAMP" property="approvalTime" />
+    <result column="TERMINATION_TIME" jdbcType="TIMESTAMP" property="terminationTime" />
+    <result column="REMARKS" jdbcType="NVARCHAR" property="remarks" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <select id="selectListByCondition" parameterType="com.golte.contract.service.data.GetContractInData"
+          resultType="com.golte.contract.service.data.GetContractOutData">
+    SELECT
+    a.ID id, a.CODE code,a.NAME name, b.NAME merchantName,a.MERCHANT_CONTACT merchantContact,
+    a.MERCHANT_CONTACT_PHONE merchantContactPhone,a.SIGNING_CONTACT signingContact,
+    a.SIGNING_CONTACT_PHONE signingContactPhone,a.AMOUNT amount,
+    CONVERT(varchar(100), a.DEADLINE_START_TIME, 23) deadlineStartTime,
+    CONVERT(varchar(100), a.DEADLINE_END_TIME, 23) deadlineEndTime,
+    CONVERT(varchar(100), a.SIGNING_TIME, 23) signingTime,
+    a.MARGIN margin,a.SIGNING_TYPE signingType,a.CONTRACT_TYPE contractType,
+    a.CONTRACT_STATUS contractStatus, a.PAYBACK_TYPE paybackType,a.DARFT_STATUS darftStatus
+    FROM g_contract a
+    LEFT JOIN g_merchant b ON a.MERCHANT_ID = b.ID
+    WHERE a.DEL_STATUS=1
+    <if test="cityIds!=null and cityIds.size()&gt;0">
+      AND a.CITY_ID IN
+      <foreach close=")" collection="cityIds" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="resourceCode!=null and resourceCode!=''">
+      AND a.ID IN (SELECT c.CONTRACT_ID FROM g_contract_resource c
+      LEFT JOIN g_resource_project_detail d ON c.RESOURCE_ID = d.ID WHERE d.ASSETS_CODE LIKE '%${resourceCode}%')
+    </if>
+    <if test="resourceName!=null and resourceName!=''">
+      AND a.ID IN (SELECT c.CONTRACT_ID FROM g_contract_resource c
+      LEFT JOIN g_resource_project_detail d ON c.RESOURCE_ID = d.ID WHERE d.ASSETS_NAME LIKE '%${resourceName}%')
+    </if>
+    <if test="projectName!=null and projectName!=''">
+      AND a.ID IN (SELECT f.CONTRACT_ID FROM g_resource_project e
+      LEFT JOIN g_contract_project f ON f.PROJECT_ID = e.ID WHERE e.PROJECT_NAME LIKE '%${projectName}%')
+    </if>
+    <if test="merchantCode!=null and merchantCode!=''">
+      AND b.CODE LIKE '%${merchantCode}%'
+    </if>
+    <if test="merchantName!=null and merchantName!=''">
+      AND b.NAME LIKE '%${merchantName}%'
+    </if>
+    <if test="code!=null and code!=''">
+      AND a.CODE LIKE '%${code}%'
+    </if>
+    <if test="name!=null and name!=''">
+      AND a.NAME LIKE '%${name}%'
+    </if>
+    <if test="deadlineStartTimeStr !=null and deadlineStartTimeStr !=''">
+      AND a.DEADLINE_START_TIME &gt;= #{deadlineStartTimeStr}
+    </if>
+    <if test="deadlineStartTimeEnd !=null and deadlineStartTimeEnd !=''">
+      AND a.DEADLINE_START_TIME &lt;= #{deadlineStartTimeEnd}
+    </if>
+    <if test="deadlineEndTimeStr !=null and deadlineEndTimeStr !=''">
+      AND a.DEADLINE_END_TIME &gt;= #{deadlineEndTimeStr}
+    </if>
+    <if test="deadlineEndTimeEnd !=null and deadlineEndTimeEnd !=''">
+      AND a.DEADLINE_END_TIME &lt;= #{deadlineEndTimeEnd}
+    </if>
+    <if test="centralCityId!=null and centralCityId!=''">
+      AND a.CENTRAL_CITY_ID = #{centralCityId}
+    </if>
+    <if test="cityId!=null and cityId!=''">
+      AND a.CITY_ID = #{cityId}
+    </if>
+    ORDER BY a.CREATE_TIME DESC
+  </select>
+
+  <select id="selectListByMerchantId" parameterType="com.golte.business.service.data.GetMerchantInData" resultType="com.golte.contract.service.data.GetContractOutData">
+     SELECT
+      row_number()OVER(ORDER BY g.CREATE_TIME DESC) sortNum,g.CODE code,g.NAME name,g.AMOUNT amount,CONVERT(varchar(100), g.DEADLINE_START_TIME, 23) deadlineStartTime, g.SIGNING_CONTACT signingContact,
+      g.CONTRACT_STATUS contractStatus,
+      g.PAYBACK_TYPE paybackType
+      FROM g_contract g
+      WHERE g.DEL_STATUS ='1'
+      <if test="id!=null and id!=''">
+        AND  g.MERCHANT_ID = #{id}
+      </if>
+      <if test="level!=1 and cityIds != null and cityIds.size()>0">
+        AND g.CITY_ID IN
+        <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+
+  </select>
+
+  <select id="selectListByContractType" resultType="com.golte.system.service.data.GetMainTopOutData"
+          parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    CONTRACT_TYPE name,
+    CASE WHEN SUM(pr.PAYBACK_AMOUNT)  is null THEN 0 ELSE SUM(pr.PAYBACK_AMOUNT) END  value
+    FROM g_payback_record  pr
+    LEFT JOIN g_contract ct ON ct.ID = pr.CONTRACT_ID
+    <where>
+      <if test="cityId != null and cityId != ''">
+        AND ct.CITY_ID = #{cityId}
+      </if>
+      <if test="year != null and year != ''">
+        AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+      </if>
+    </where>
+    group by CONTRACT_TYPE ORDER BY  value DESC;
+
+  </select>
+
+  <select id="selectListByContractTypeDetail" resultType="com.golte.system.service.data.GetMainTopOutData"
+          parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    row_number()OVER(ORDER BY ct.CREATE_TIME DESC) sortNum,
+    ct.CONTRACT_TYPE name,
+    ct.NAME contractName,
+    CONVERT(varchar(100), ct.DEADLINE_START_TIME, 23) startTime,
+    CONVERT(varchar(100), ct.DEADLINE_END_TIME, 23) endTime
+
+    FROM g_payback_record  pr
+    LEFT JOIN g_contract ct ON ct.ID = pr.CONTRACT_ID
+    <where>
+      <if test="typeName != null and typeName != ''">
+        AND ct.CONTRACT_TYPE = #{typeName}
+      </if>
+      <if test="cityId != null and cityId != ''">
+        AND ct.CITY_ID = #{cityId}
+      </if>
+      <if test="year != null and year != ''">
+        AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+      </if>
+    </where>
+
+  </select>
+</mapper>

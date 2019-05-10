@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GResourceProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GResourceProject" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="CENTRAL_CITY_ID" property="centralCityId" jdbcType="BIGINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="BIGINT" />
+    <result column="PROJECT_NAME" property="projectName" jdbcType="NVARCHAR" />
+    <result column="DEL_STATUS" property="delStatus" jdbcType="NVARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_NAME" property="createName" jdbcType="NVARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_NAME" property="updateName" jdbcType="NVARCHAR" />
+  </resultMap>
+
+    <select id="selectProjectListByCondition" resultType="com.golte.resource.service.data.GetProjectOutData"
+            parameterType="com.golte.resource.service.data.GetProjectInData">
+        SELECT
+        r.ID id, r.CITY_ID cityId,c.CITY_NAME cityName, r.PROJECT_NAME projectName, r.CREATE_NAME createName,CONVERT(VARCHAR(100),r.CREATE_TIME,23) createTime
+        ,r.CENTRAL_CITY_ID centralCityId
+        FROM g_resource_project r
+        LEFT JOIN g_city c ON c.ID = r.CITY_ID
+        WHERE r.DEL_STATUS = '1'
+        <if test="cityIds!=null and cityIds.size()&gt;0">
+            AND r.CITY_ID IN
+            <foreach close=")" collection="cityIds" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="centralCityId != null and centralCityId != ''">
+            AND r.CENTRAL_CITY_ID = #{centralCityId}
+        </if>
+        <if test="cityId != null and cityId != ''">
+            AND r.CITY_ID = #{cityId}
+        </if>
+        <if test="projectName != null and projectName != ''">
+            AND r.PROJECT_NAME like '%${projectName}%'
+        </if>
+        <if test="createName != null and createName != ''">
+            AND r.CREATE_NAME like '%${createName}%'
+        </if>
+        <if test="starttime != null and starttime != ''">
+            AND convert(varchar(10),r.CREATE_TIME ,120) &gt;= #{starttime}
+        </if>
+        <if test="endtime != null and endtime != ''">
+            AND convert(varchar(10),r.CREATE_TIME ,120) &lt;= #{endtime}
+        </if>
+        ORDER BY r.CREATE_TIME DESC
+
+    </select>
+
+    <select id="selectListByCity" resultType="com.golte.system.service.data.GetResourceProjectOutData"
+            parameterType="com.golte.system.service.data.GetResourceProjectInData">
+        SELECT
+        r.ID id,r.PROJECT_NAME projectName
+        FROM g_resource_project r
+        WHERE r.DEL_STATUS = 1
+        <if test="cityIds!=null and cityIds.size()&gt;0">
+            AND r.CITY_ID IN
+            <foreach close=")" collection="cityIds" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="selectExistProjectList" resultMap="BaseResultMap"
+            parameterType="com.golte.resource.service.data.GetPointExportInData">
+        SELECT
+        rp.ID  ,rp.CENTRAL_CITY_ID ,rp.PROJECT_NAME projectName
+        FROM g_resource_project rp
+        LEFT JOIN g_city c ON rp.CITY_ID = c.ID
+        WHERE rp.DEL_STATUS = 1
+        <if test="projectName != null and projectName != ''">
+            AND rp.PROJECT_NAME = #{projectName}
+        </if>
+        <if test="cityName != null and cityName != ''">
+            AND c.CITY_NAME = #{cityName}
+        </if>
+
+    </select>
+
+    <select id="selectExistContract" resultType="com.golte.resource.service.data.GetProjectOutData" parameterType="java.lang.Long">
+        SELECT
+        rp.PROJECT_NAME projectName
+        FROM  g_contract_project cp
+        LEFT JOIN g_contract ct ON ct.ID = cp.CONTRACT_ID
+        LEFT JOIN g_resource_project rp ON rp.ID = cp.PROJECT_ID
+        WHERE  ct.DEL_STATUS ='1'
+        AND ct.DEADLINE_START_TIME &lt;= CONVERT(varchar,GETDATE(),120)  AND ct.DEADLINE_END_TIME &gt;= CONVERT(varchar,GETDATE(),120)
+        AND cp.PROJECT_ID = #{id,jdbcType=BIGINT}
+
+    </select>
+
+</mapper>

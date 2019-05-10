@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GRoleRelationshipMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GRoleRelationship" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="EMP_ID" property="empId" jdbcType="BIGINT" />
+    <id column="ROLE_ID" property="roleId" jdbcType="BIGINT" />
+  </resultMap>
+</mapper>

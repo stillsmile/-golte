@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GCityYearTargetMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GCityYearTarget" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="BIGINT" />
+    <result column="YEAR" property="year" jdbcType="NVARCHAR" />
+    <result column="YEAR_TARGET" property="yearTarget" jdbcType="DECIMAL" />
+  </resultMap>
+</mapper>

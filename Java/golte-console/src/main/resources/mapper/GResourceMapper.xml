@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.golte.mapper.GResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GResource" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="RES_NAME" property="resName" jdbcType="VARCHAR" />
+    <result column="RES_URL" property="resUrl" jdbcType="VARCHAR" />
+    <result column="RES_TYPE" property="resType" jdbcType="VARCHAR" />
+    <result column="RES_PARTEN_ID" property="resPartenId" jdbcType="BIGINT" />
+    <result column="RES_ICON" property="resIcon" jdbcType="VARCHAR" />
+    <result column="RES_DESCRIPTION" property="resDescription" jdbcType="VARCHAR" />
+    <result column="RES_STATUS" property="resStatus" jdbcType="VARCHAR" />
+    <result column="RES_SEQ" property="resSeq" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_NAME" property="createName" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_NAME" property="updateName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="getListByEmp" resultMap="BaseResultMap">
+    select DISTINCT t.*
+    from g_resource t left join g_resource_relationship recre on t.ID = recre.RESOURCE_ID
+    left join g_role_relationship rolre on recre.ROLE_ID = rolre.ROLE_ID
+    where rolre.EMP_ID = #{empId} AND t.RES_STATUS = '1' order by t.RES_SEQ
+  </select>
+</mapper>

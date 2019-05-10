@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GCityMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GCity">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CENTRAL_CITY_ID" jdbcType="BIGINT" property="centralCityId" />
+    <result column="CITY_NAME" jdbcType="NVARCHAR" property="cityName" />
+    <result column="CITY_PRINCIPAL" jdbcType="BIGINT" property="cityPrincipal" />
+    <result column="BUSINESS_PRINCIPAL" jdbcType="BIGINT" property="businessPrincipal" />
+    <result column="YEAR_TARGET" jdbcType="DECIMAL" property="yearTarget" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+  </resultMap>
+
+  <select id="selectByEnterPerson" resultMap="BaseResultMap">
+    SELECT
+    a.ID id,
+    a.CITY_NAME cityName
+    FROM g_city a LEFT JOIN g_city_entry b ON a.ID = b.CITY_ID
+    WHERE b.ENTER_PERSON = #{empId}
+  </select>
+
+  <select id="selectByBusinessPrincipal" resultMap="BaseResultMap">
+    SELECT
+    ID id,
+    CITY_NAME cityName
+    FROM g_city WHERE BUSINESS_PRINCIPAL = #{empId}
+  </select>
+
+  <select id="selectByCityPrincipal" resultMap="BaseResultMap">
+    SELECT
+    ID id,
+    CITY_NAME cityName
+    FROM g_city WHERE CITY_PRINCIPAL = #{empId}
+  </select>
+
+  <select id="selectByEmpId" resultMap="BaseResultMap">
+    SELECT
+    a.ID id,
+    a.CITY_NAME cityName
+    FROM g_city a LEFT JOIN g_central_city b ON a.CENTRAL_CITY_ID = b.ID
+    WHERE b.EMP_ID = #{empId}
+  </select>
+
+  <resultMap id="answerInfoResultMap" type="com.golte.basicdata.service.data.GetCityOutData">
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="centralCityId" property="centralCityId" jdbcType="BIGINT" />
+    <result column="centralCityName" property="centralCityName" jdbcType="VARCHAR" />
+    <result column="cityName" property="cityName" jdbcType="VARCHAR" />
+    <result column="yearTarget" property="yearTarget" jdbcType="BIGINT" />
+    <result column="businessPrincipal" property="businessPrincipal" jdbcType="BIGINT" />
+    <result column="departmentLeaderName" property="departmentLeaderName" jdbcType="VARCHAR" />
+    <result column="cityPrincipal" property="cityPrincipal" jdbcType="BIGINT" />
+    <result column="cityLeaderName" property="cityLeaderName" jdbcType="VARCHAR" />
+
+    <collection property="employeeList" column="{centralCityId=centralCityId,cityId=id}" ofType="com.golte.basicdata.service.data.GetEmployeeOutData" select="selectEnterList">
+
+    </collection>
+
+  </resultMap>
+
+  <select id="selectEnterList" parameterType="java.util.Map" resultType="com.golte.basicdata.service.data.GetEmployeeOutData">
+        SELECT
+        e.ID id,
+        e.EMP_NAME empName
+        FROM g_city_entry ce
+        LEFT JOIN g_employee e ON e.ID = ce.ENTER_PERSON
+        WHERE ce.CENTRAL_CITY_ID=#{centralCityId} AND ce.CITY_ID =#{cityId}
+  </select>
+
+  <select id="selectListByCondition" resultMap="answerInfoResultMap"
+          parameterType="com.golte.basicdata.service.data.GetCityInData">
+    SELECT
+    c.ID id,c.CENTRAL_CITY_ID centralCityId,cc.CENTRAL_CITY_NAME centralCityName,    --中心城市
+    c.CITY_NAME cityName,--城市
+    c.YEAR_TARGET yearTarget,--年度指标
+    c.CITY_PRINCIPAL cityPrincipal,e.EMP_NAME cityLeaderName,               --城市分公司负责人Id,名称
+    c.BUSINESS_PRINCIPAL businessPrincipal,e1.EMP_NAME departmentLeaderName  --经营部门负责人Id,名称
+
+    FROM g_city c
+    LEFT JOIN g_central_city cc ON c.CENTRAL_CITY_ID = cc.ID --中心城市关联查询
+    LEFT JOIN g_employee e ON c.CITY_PRINCIPAL = e.ID        --城市负责人关联查询
+    LEFT JOIN g_employee e1 ON c.BUSINESS_PRINCIPAL = e1.ID  --经营部门负责人关联查询
+
+    WHERE c.DEL_STATUS = '1'
+    <if test="cityIds != null and cityIds.size()>0">
+      AND c.ID IN
+      <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+
+    <if test="cityName != null and cityName != ''">
+      AND c.CITY_NAME like '%' + #{cityName} + '%'
+    </if>
+    <if test="cityPrincipal != null and cityPrincipal != ''">
+      AND c.CITY_PRINCIPAL = #{cityPrincipal}
+    </if>
+    <if test="businessPrincipal != null and businessPrincipal != ''">
+      AND c.BUSINESS_PRINCIPAL = #{businessPrincipal}
+    </if>
+    <if test="enterPerson != null and enterPerson != ''">
+      AND ce.ENTER_PERSON = #{enterPerson}
+    </if>
+    <if test="centralCityId != null and centralCityId != ''">
+      AND c.CENTRAL_CITY_ID = #{centralCityId}
+    </if>
+    ORDER BY c.DEL_STATUS DESC, c.CREATE_TIME DESC
+  </select>
+
+
+    <select id="selectYearTargetByCondition" resultType="com.golte.system.service.data.GetMainOutData"
+            parameterType="com.golte.system.service.data.GetMainInData">
+      SELECT
+      CASE WHEN SUM (ct.AMOUNT) IS NULL THEN 0 ELSE SUM (ct.AMOUNT) END amount
+      FROM g_contract ct
+      WHERE ct.DEL_STATUS = '1' AND ct.DARFT_STATUS='0'
+      <if test="cityId != null and cityId != ''">
+        AND ct.CITY_ID = #{cityId}
+      </if>
+      <if test="year != null and year != ''">
+        AND Datename(YEAR,ct.DEADLINE_START_TIME) = #{year}
+      </if>
+    </select>
+
+    <select id="selectCitys"    resultMap="BaseResultMap"
+            parameterType="com.golte.basicdata.service.data.GetCityInData">
+      SELECT
+      ID id,
+      CITY_NAME
+      FROM g_city
+      WHERE DEL_STATUS = '1'
+      <if test="cityIds != null and cityIds.size()>0">
+        AND ID IN
+        <foreach item="item" index="index" collection="cityIds"   open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+    </select>
+
+</mapper>

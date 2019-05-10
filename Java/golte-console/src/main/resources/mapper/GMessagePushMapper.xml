@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GMessagePushMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GMessagePush">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="MES_TITLE" jdbcType="NVARCHAR" property="mesTitle" />
+    <result column="MES_CONTENT" jdbcType="LONGNVARCHAR" property="mesContent" />
+    <result column="MES_RECEIVE_EMP_ID" jdbcType="BIGINT" property="mesReceiveEmpId" />
+    <result column="MES_STATUS" jdbcType="NVARCHAR" property="mesStatus" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+  <select id="selectUnReadMesList" resultType="com.golte.system.service.data.GetMessagePushOutData"
+          parameterType="com.golte.system.service.data.GetMessagePushInData">
+    SELECT
+    MES_TITLE mesTitle,MES_CONTENT mesContent,CONVERT(varchar(100), CREATE_TIME, 23) createTime
+    FROM g_message_push
+    WHERE MES_RECEIVE_EMP_ID = #{id}
+
+    <if test="mesStatus != null and mesStatus != ''">
+      AND MES_STATUS = #{mesStatus}
+    </if>
+
+    ORDER BY createTime DESC
+
+  </select>
+
+</mapper>

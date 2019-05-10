@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GPaybackPlanMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GPaybackPlan">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="CENTRAL_CITY_ID" jdbcType="BIGINT" property="centralCityId" />
+    <result column="CITY_ID" jdbcType="BIGINT" property="cityId" />
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="MERCHANT_ID" jdbcType="BIGINT" property="merchantId" />
+    <result column="CONTRACT_PROJECT_ID" jdbcType="BIGINT" property="contractProjectId" />
+    <result column="RECEIVABLE_PAYBACK" jdbcType="DECIMAL" property="receivablePayback" />
+    <result column="PAYBACK_STATUS" jdbcType="NVARCHAR" property="paybackStatus" />
+    <result column="EXTENSION_STATUS" jdbcType="NVARCHAR" property="extensionStatus" />
+    <result column="BEFORE_REMIND" jdbcType="NVARCHAR" property="beforeRemind" />
+    <result column="EXTENSION_REMIND" jdbcType="NVARCHAR" property="extensionRemind" />
+    <result column="STATUS" jdbcType="NVARCHAR" property="status" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+    <result column="EXTENSION_DAY_NUM" jdbcType="INTEGER" property="extensionDayNum" />
+    <result column="EXTENSION_AMOUNT" jdbcType="DECIMAL" property="extensionAmount" />
+    <result column="EXTENSION_TIME" jdbcType="TIMESTAMP" property="extensionTime" />
+    <result column="PAYBACK_TIME" jdbcType="TIMESTAMP" property="paybackTime" />
+    <result column="REMITTANCE_TIME" jdbcType="TIMESTAMP" property="remittanceTime" />
+    <result column="REMARKS" jdbcType="NVARCHAR" property="remarks" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="EDIT_STATUS" jdbcType="NVARCHAR" property="editStatus" />
+  </resultMap>
+
+  <select id="selectListByCondition" parameterType="com.golte.payBack.service.data.GetPayBackPlanInData" resultType="com.golte.payBack.service.data.GetPayBackPlanOutData">
+    SELECT
+    a.ID id, CONVERT(varchar(100), a.PAYBACK_TIME, 23) paybackTime,a.RECEIVABLE_PAYBACK receivablePayback,
+    (
+    SELECT
+    sum(d.PAYBACK_AMOUNT)
+    FROM
+    g_payback_record d
+    WHERE
+    d.PAYBACK_PLAN_ID = a.ID
+    ) receivedAmount,
+     a.PAYBACK_STATUS paybackStatus,
+    a.NAME name,b.NAME merchantName,c.MERCHANT_CONTACT createName,a.EXTENSION_STATUS extensionStatus,
+    a.CONTRACT_ID contractId,a.STATUS status,a.EDIT_STATUS editStatus
+    FROM g_payback_plan a
+    LEFT JOIN g_merchant b ON a.MERCHANT_ID = b.ID
+    LEFT JOIN g_contract c on a.CONTRACT_ID = c.ID
+    WHERE a.DEL_STATUS=1
+    <if test="cityIds!=null and cityIds.size()&gt;0">
+      AND a.CITY_ID IN
+      <foreach close=")" collection="cityIds" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="merchantName!=null and merchantName!=''">
+      AND b.NAME LIKE '%${merchantName}%'
+    </if>
+    <if test="contractPerson!=null and contractPerson!=''">
+      AND c.MERCHANT_CONTACT LIKE '%${contractPerson}%'
+    </if>
+    <if test="name!=null and name!=''">
+      AND a.NAME LIKE '%${name}%'
+    </if>
+    <if test="paybackStartTime !=null and paybackStartTime !=''">
+      AND a.PAYBACK_TIME &gt;= #{paybackStartTime}
+    </if>
+    <if test="paybackEndTime !=null and paybackEndTime !=''">
+      AND a.PAYBACK_TIME &lt;= #{paybackEndTime}
+    </if>
+    <if test="centralCityId!=null and centralCityId!=''">
+      AND a.CENTRAL_CITY_ID = #{centralCityId}
+    </if>
+    <if test="cityId!=null and cityId!=''">
+      AND a.CITY_ID = #{cityId}
+    </if>
+    <if test="paybackStatus!=null and paybackStatus!=''">
+      AND a.PAYBACK_STATUS = #{paybackStatus}
+    </if>
+    ORDER BY a.CREATE_TIME DESC
+  </select>
+</mapper>

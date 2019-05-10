@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GPaybackRecordMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GPaybackRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="PAYBACK_PLAN_ID" jdbcType="BIGINT" property="paybackPlanId" />
+    <result column="CONTRACT_PROJECT_ID" jdbcType="BIGINT" property="contractProjectId" />
+    <result column="PAYBACK_AMOUNT" jdbcType="DECIMAL" property="paybackAmount" />
+    <result column="PAYBACK_INVOICE_CODE" jdbcType="NVARCHAR" property="paybackInvoiceCode" />
+    <result column="LAST_PAYMENT" jdbcType="DECIMAL" property="lastPayment" />
+    <result column="RECEIPT_MEMBER" jdbcType="NVARCHAR" property="receiptMember" />
+    <result column="PAYBACK_TIME" jdbcType="TIMESTAMP" property="paybackTime" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+
+  <select id="selectPaybackRecordTop10" resultType="com.golte.system.service.data.GetMainTopOutData"
+                      parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT rp.PROJECT_NAME name,
+    SUM(pr.PAYBACK_AMOUNT) payValue
+    FROM g_payback_record pr
+    LEFT JOIN g_contract_project cp ON cp.ID = pr.CONTRACT_PROJECT_ID
+    LEFT JOIN g_resource_project rp on rp.ID = cp.PROJECT_ID
+    <where>
+      <if test="cityId != null and cityId != ''">
+        AND rp.CITY_ID = #{cityId}
+      </if>
+      <if test="year != null and year != ''">
+        AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+      </if>
+    </where>
+      group by rp.PROJECT_NAME  ORDER BY  payValue DESC
+  </select>
+
+  <select id="selectPaybackRecordTop10Detail" resultType="com.golte.system.service.data.GetMainTopOutData"
+          parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    row_number()OVER(ORDER BY pr.CREATE_TIME DESC) sortNum
+    ,rp.PROJECT_NAME projectName--项目名称
+    ,ct.NAME contractName --合同名称
+    ,CONVERT(varchar(100), pr.PAYBACK_TIME, 23) paybackTime---回款时间
+    ,e.EMP_NAME peceiptMember--收款人
+    FROM
+    g_payback_record pr
+    LEFT JOIN g_contract_project cp ON cp.ID = pr.CONTRACT_PROJECT_ID
+    LEFT JOIN g_contract ct ON ct.ID = pr.CONTRACT_ID
+    LEFT JOIN g_resource_project rp ON rp.ID = cp.PROJECT_ID
+    LEFT JOIN g_employee e ON  e.ID = pr.RECEIPT_MEMBER
+    WHERE '1'='1'
+    <if test="typeName != null and typeName != ''">
+        AND rp.PROJECT_NAME = #{typeName}
+    </if>
+    <if test="year != null and year != ''">
+      AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+    </if>
+
+  </select>
+
+  <select id="selectMerchantTop10" resultType="com.golte.system.service.data.GetMainTopOutData"
+                    parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    max(mt.NAME) name,SUM(pr.PAYBACK_AMOUNT) payValue
+    FROM g_payback_record pr
+    LEFT JOIN g_payback_plan pp ON pp.ID = pr.PAYBACK_PLAN_ID
+    LEFT JOIN g_merchant mt ON mt.ID = pp.MERCHANT_ID
+    <where>
+      <if test="cityId != null and cityId != ''">
+        AND pp.CITY_ID = #{cityId}
+      </if>
+      <if test="year != null and year != ''">
+        AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+      </if>
+    </where>
+    group by mt.ID ORDER BY  payValue DESC
+
+  </select>
+
+  <select id="selectMerchantTop10Detail" resultType="com.golte.system.service.data.GetMainTopOutData"
+                    parameterType="com.golte.system.service.data.GetMainInData">
+    SELECT
+    row_number()OVER(ORDER BY pr.CREATE_TIME DESC) sortNum,
+    mt.NAME name,
+    pp.NAME contractName,
+    CONVERT(varchar(100), pr.PAYBACK_TIME, 23) startTime,
+    e.EMP_NAME peceiptMember
+    FROM g_payback_record pr
+    LEFT JOIN g_payback_plan pp ON pp.ID = pr.PAYBACK_PLAN_ID
+    LEFT JOIN g_merchant mt ON mt.ID = pp.MERCHANT_ID
+    LEFT JOIN g_employee e ON e.ID = pr.RECEIPT_MEMBER
+    <where>
+      <if test="typeName != null and typeName != ''">
+        AND mt.NAME = #{typeName}
+      </if>
+      <if test="year != null and year != ''">
+        AND DATENAME(year,pr.PAYBACK_TIME) = #{year}
+      </if>
+    </where>
+  </select>
+
+</mapper>

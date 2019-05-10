@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GEmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GEmployee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="EMP_NAME" jdbcType="NVARCHAR" property="empName" />
+    <result column="EMP_ACCOUNT_NUMBER" jdbcType="NVARCHAR" property="empAccountNumber" />
+    <result column="EMP_PASSWORD" jdbcType="NVARCHAR" property="empPassword" />
+    <result column="EMP_EMAIL" jdbcType="NVARCHAR" property="empEmail" />
+    <result column="EMP_JOB_TITLE" jdbcType="NVARCHAR" property="empJobTitle" />
+    <result column="EMP_SORT_VALUE" jdbcType="INTEGER" property="empSortValue" />
+    <result column="EMP_STATUS" jdbcType="NVARCHAR" property="empStatus" />
+    <result column="CREATE_NAME" jdbcType="NVARCHAR" property="createName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_NAME" jdbcType="NVARCHAR" property="updateName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="DEL_STATUS" jdbcType="NVARCHAR" property="delStatus" />
+  </resultMap>
+
+  <select id="selectListByCondition" parameterType="com.golte.system.service.data.GetEmployeeInData" resultType="com.golte.system.service.data.GetEmployeeOutData">
+    SELECT
+    e.ID id, e.EMP_NAME empName, e.EMP_ACCOUNT_NUMBER empAccount, e.EMP_STATUS empStatus,
+    e.EMP_JOB_TITLE empJobTitle, e.EMP_SORT_VALUE empSortValue, e.EMP_EMAIL empEmail
+    FROM g_employee e 
+    WHERE e.ID != 1 and e.DEL_STATUS = '1'
+    <if test="empAccount != null and empAccount != ''">
+      AND e.EMP_ACCOUNT_NUMBER like '%' + #{empAccount} + '%'
+    </if>
+    <if test="empName != null and empName != ''">
+      AND e.EMP_NAME like '%' + #{empName} + '%'
+    </if>
+    <if test="empStatus != null and empStatus != ''">
+      AND e.EMP_STATUS = #{empStatus}
+    </if>
+    ORDER BY e.EMP_STATUS DESC, e.CREATE_TIME DESC
+  </select>
+</mapper>

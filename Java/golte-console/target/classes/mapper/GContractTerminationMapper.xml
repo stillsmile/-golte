@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.golte.mapper.GContractTerminationMapper">
+  <resultMap id="BaseResultMap" type="com.golte.mapper.entity.GContractTermination">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="APPROVAL_ID" jdbcType="BIGINT" property="approvalId" />
+    <result column="CONTRACT_ID" jdbcType="BIGINT" property="contractId" />
+    <result column="NOT_RECOVERED_AMOUNT" jdbcType="DECIMAL" property="notRecoveredAmount" />
+    <result column="REASON" jdbcType="NVARCHAR" property="reason" />
+    <result column="TERMINATION_TIME" jdbcType="TIMESTAMP" property="terminationTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>
